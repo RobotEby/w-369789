@@ -8,13 +8,13 @@ const ContactInfo = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 md:mb-16">
           <div className="inline-block mb-3 px-3 py-1 bg-white text-black rounded-full text-sm font-medium">
-            Get In Touch
+            Entre em Contato
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
-            Contact Us Today
+            Fale com Nossa Equipe
           </h2>
           <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-            Have questions about our AI-powered sensor solutions? Reach out to our team and let's discuss how we can help bring your ideas to life.
+            Tem dúvidas sobre nossas estratégias de marketing digital? Entre em contato conosco e vamos discutir como podemos impulsionar seus resultados.
           </p>
         </div>
 
@@ -23,25 +23,25 @@ const ContactInfo = () => {
           <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-700">
             <div className="flex flex-col items-center text-center">
               <img 
-                src="/lovable-uploads/aa5291bd-2417-4c1e-9a02-0bcc71a92507.png"
-                alt="Felix von Heland"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Especialista em Marketing Digital Felix"
                 className="w-32 h-32 rounded-full mb-4 object-cover filter grayscale"
               />
               <h3 className="text-xl font-bold text-gray-900">Felix von Heland</h3>
-              <p className="text-gray-600 mb-4">CEO and Founder</p>
+              <p className="text-gray-600 mb-4">CEO e Estrategista Digital</p>
               <div className="flex flex-col space-y-3">
-                <a href="mailto:felix@wrlds.com" className="flex items-center text-gray-700 hover:text-blue-600">
+                <a href="mailto:felix@agenciadigital.com" className="flex items-center text-gray-700 hover:text-blue-600">
                   <Mail className="w-5 h-5 mr-2" />
-                  felix@wrlds.com
+                  felix@agenciadigital.com
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/felixvonheland/" 
+                  href="https://www.linkedin.com/in/felixdigital/" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-gray-700 hover:text-blue-600"
                 >
                   <Linkedin className="w-5 h-5 mr-2" />
-                  LinkedIn Profile
+                  Perfil LinkedIn
                 </a>
               </div>
             </div>
@@ -51,25 +51,25 @@ const ContactInfo = () => {
           <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-700">
             <div className="flex flex-col items-center text-center">
               <img 
-                src="/lovable-uploads/a9bb9110-964a-43b0-a5ab-7162140cd133.png"
-                alt="Love Anderberg"
+                src="https://images.unsplash.com/photo-1494790108755-2616c2c5608b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Especialista em Performance Love Anderberg"
                 className="w-32 h-32 rounded-full mb-4 object-cover filter grayscale"
               />
               <h3 className="text-xl font-bold text-gray-900">Love Anderberg</h3>
-              <p className="text-gray-600 mb-4">COO</p>
+              <p className="text-gray-600 mb-4">COO e Especialista em Performance</p>
               <div className="flex flex-col space-y-3">
-                <a href="mailto:love@wrlds.com" className="flex items-center text-gray-700 hover:text-blue-600">
+                <a href="mailto:love@agenciadigital.com" className="flex items-center text-gray-700 hover:text-blue-600">
                   <Mail className="w-5 h-5 mr-2" />
-                  love@wrlds.com
+                  love@agenciadigital.com
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/love-anderberg-67549a174/" 
+                  href="https://www.linkedin.com/in/love-anderberg-digital/" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-gray-700 hover:text-blue-600"
                 >
                   <Linkedin className="w-5 h-5 mr-2" />
-                  LinkedIn Profile
+                  Perfil LinkedIn
                 </a>
                 <a href="tel:+46760149508" className="flex items-center text-gray-700 hover:text-blue-600">
                   <Phone className="w-5 h-5 mr-2" />

@@ -71,9 +71,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-700">
           <div className="lg:col-span-2">
             <img 
-              src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
-              alt="Logo da Agência de Marketing Digital" 
-              className="h-10 w-auto mb-6 invert" // Added invert to make logo white
+              src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+              alt="Logo da Agência de Marketing Digital com Gráficos" 
+              className="h-10 w-auto mb-6 filter brightness-0 invert" 
             />
             <p className="text-gray-300 mb-6">
               Nossa agência oferece uma plataforma completa para criação e implementação de campanhas de marketing digital de alta performance, proporcionando aos clientes 100% de ownership enquanto cuidamos de todo o desenvolvimento estratégico.

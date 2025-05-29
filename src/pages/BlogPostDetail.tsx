@@ -5,20 +5,17 @@ import SEO from '@/components/SEO';
 import { useEffect, useState } from 'react';
 import { blogPosts } from '@/data/blogPosts';
 import { motion } from 'framer-motion';
-import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag, Lightbulb, ArrowRight, FileText, Rocket, Settings, CheckCircle, BarChart, Zap, Target, DollarSign } from 'lucide-react';
+import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag, Lightbulb, ArrowRight, FileText, Rocket, Settings, CheckCircle, BarChart, Zap, Target, DollarSign, ArrowLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { LoadingAnimation } from '@/components/LoadingAnimation';
 
 const BlogPostDetail = () => {
-  const {
-    slug
-  } = useParams<{
-    slug: string;
-  }>();
+  const { slug } = useParams<{ slug: string; }>();
   const post = blogPosts.find(post => post.slug === slug);
   const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     window.scrollTo(0, 0);
     // Simulate loading for smoother transitions
@@ -29,13 +26,21 @@ const BlogPostDetail = () => {
   }, [slug]);
   
   if (!post) {
-    return <PageLayout>
-        <SEO title="Post Not Found - WRLDS Technologies" description="The requested blog post could not be found." />
+    return (
+      <PageLayout>
+        <SEO title="Post Não Encontrado - CBAAP" description="O post solicitado não pôde ser encontrado." />
         <div className="container mx-auto px-4 py-16 min-h-[50vh] flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold mb-4">Post not found</h1>
-          <p>We couldn't find the post you're looking for.</p>
+          <h1 className="text-3xl font-bold mb-4">Post não encontrado</h1>
+          <p>Não conseguimos encontrar o post que você está procurando.</p>
+          <Link to="/blog" className="mt-4">
+            <Button variant="outline" className="flex items-center gap-2">
+              <ArrowLeft size={16} />
+              Voltar para o Blog
+            </Button>
+          </Link>
         </div>
-      </PageLayout>;
+      </PageLayout>
+    );
   }
 
   // Calculate reading time (average 200 words per minute)
@@ -84,34 +89,56 @@ const BlogPostDetail = () => {
 
   // Extract keywords from post content
   const extractKeywords = () => {
-    const keywords = ['smart textiles', 'product development', post.category.toLowerCase()];
-    if (post.title.includes('Development Process')) {
-      keywords.push('development process', 'manufacturing', 'prototyping', 'smart product design');
+    const keywords = ['marketing digital', 'desenvolvimento de campanhas', post.category.toLowerCase()];
+    if (post.title.includes('Processo de Desenvolvimento')) {
+      keywords.push('processo de desenvolvimento', 'campanhas', 'prototipagem', 'design de estratégias digitais');
     }
     return keywords;
   };
   
-  return <PageLayout>
-      <SEO title={`${post.title} - WRLDS Technologies`} description={post.excerpt} imageUrl={post.imageUrl} type="article" isBlogPost={true} publishDate={formatDateForISO(post.date)} modifiedDate={formatDateForISO(post.date)} author={post.author} category={post.category} keywords={extractKeywords()} />
+  return (
+    <PageLayout>
+      <SEO 
+        title={`${post.title} - CBAAP`} 
+        description={post.excerpt} 
+        imageUrl={post.imageUrl} 
+        type="article" 
+        isBlogPost={true} 
+        publishDate={formatDateForISO(post.date)} 
+        modifiedDate={formatDateForISO(post.date)} 
+        author={post.author} 
+        category={post.category} 
+        keywords={extractKeywords()} 
+      />
+      
+      {/* Back Button - Fixed Position */}
+      <div className="fixed top-20 left-4 z-40">
+        <Link to="/blog">
+          <Button 
+            variant="outline" 
+            className="bg-white/90 backdrop-blur-sm border-gray-300 text-gray-700 hover:bg-white hover:text-gray-900 shadow-md flex items-center gap-2"
+          >
+            <ArrowLeft size={16} />
+            Voltar
+          </Button>
+        </Link>
+      </div>
       
       <div className={cn("w-full pt-32 pb-16 relative", isSensorPost ? "bg-black text-white" : "bg-gradient-to-b from-gray-900 to-black text-white")} style={{
-      backgroundImage: isSensorPost 
-        ? `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('${post.imageUrl}')`
-        : `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
-    }}>
+        backgroundImage: isSensorPost 
+          ? `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('${post.imageUrl}')`
+          : `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}>
         <div className="container mx-auto px-4">
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6
-        }} className="max-w-3xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6 }} 
+            className="max-w-3xl mx-auto"
+          >
             <div className="flex items-center gap-2 mb-4">
               <Badge variant="secondary" className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 flex items-center gap-1.5">
                 <Tag size={14} />
@@ -123,22 +150,25 @@ const BlogPostDetail = () => {
               </Badge>
               <Badge variant="outline" className="border-white/10 text-white/80 backdrop-blur-sm flex items-center gap-1.5">
                 <Clock size={14} />
-                {readingTime} min read
+                {readingTime} min de leitura
               </Badge>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">{post.title}</h1>
             <div className="flex items-center text-gray-300">
               <BookOpen size={18} className="mr-2" />
-              <span>By {post.author}</span>
+              <span>Por {post.author}</span>
             </div>
           </motion.div>
         </div>
       </div>
       
       <div className="container mx-auto px-4 py-12">
-        {isLoading ? <div className="flex justify-center py-20">
+        {isLoading ? (
+          <div className="flex justify-center py-20">
             <LoadingAnimation />
-          </div> : <div className="max-w-3xl mx-auto">
+          </div>
+        ) : (
+          <div className="max-w-3xl mx-auto">
             {isProcessPost ? <motion.div initial={{
           opacity: 0
         }} animate={{
@@ -529,11 +559,20 @@ const BlogPostDetail = () => {
             
             <div className="flex flex-col sm:flex-row items-center justify-between py-6 bg-gray-50 rounded-lg p-6 shadow-sm">
               <div>
-                <p className="text-sm text-gray-600 font-medium">Category: {post.category}</p>
+                <p className="text-sm text-gray-600 font-medium">Categoria: {post.category}</p>
               </div>
+              <Link to="/blog" className="mt-4 sm:mt-0">
+                <Button variant="outline" className="flex items-center gap-2">
+                  <ArrowLeft size={16} />
+                  Voltar para o Blog
+                </Button>
+              </Link>
             </div>
-          </div>}
+          </div>
+        )}
       </div>
-    </PageLayout>;
+    </PageLayout>
+  );
 };
+
 export default BlogPostDetail;

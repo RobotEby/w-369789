@@ -21,10 +21,10 @@ const Index = () => {
   return (
     <PageLayout>
       <SEO 
-        title="Agência de Marketing Digital - Tráfego Pago e Estratégias de Alta Performance" 
-        description="Transformamos tráfego em conversões escaláveis com estratégias de marketing digital, campanhas otimizadas e ROI mensurável para seu negócio."
+        title="CBAAP - Agência de Marketing Digital - Tráfego Pago e Estratégias de Alta Performance" 
+        description="Na CBAAP, transformamos tráfego em conversões escaláveis com estratégias de marketing digital, campanhas otimizadas e ROI mensurável para seu negócio em Belo Horizonte, MG."
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
-        keywords={['marketing digital', 'tráfego pago', 'campanhas otimizadas', 'ROI mensurável', 'conversões escaláveis', 'agência digital', 'estratégias de performance']}
+        keywords={['CBAAP', 'marketing digital', 'tráfego pago', 'campanhas otimizadas', 'ROI mensurável', 'conversões escaláveis', 'agência digital', 'estratégias de performance', 'Belo Horizonte']}
       />
       <Hero />
       <Features />

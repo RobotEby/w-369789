@@ -31,10 +31,10 @@ const Footer = () => {
       const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
       
       const templateParams = {
-        from_name: "Inscrito do Website",
+        from_name: "Inscrito do Website CBAAP",
         from_email: email,
-        message: `Nova solicitação de inscrição no newsletter do site.`,
-        to_name: 'Equipe Digital',
+        message: `Nova solicitação de inscrição no newsletter da CBAAP.`,
+        to_name: 'Equipe CBAAP',
         reply_to: email
       };
       
@@ -47,7 +47,7 @@ const Footer = () => {
       
       toast({
         title: "Sucesso!",
-        description: "Obrigado por se inscrever em nosso newsletter de marketing digital.",
+        description: "Obrigado por se inscrever em nosso newsletter de marketing digital da CBAAP.",
         variant: "default"
       });
       
@@ -72,19 +72,19 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <img 
               src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-              alt="Logo da Agência de Marketing Digital com Gráficos" 
+              alt="Logo da CBAAP com Gráficos de Marketing Digital" 
               className="h-10 w-auto mb-6 filter brightness-0 invert" 
             />
             <p className="text-gray-300 mb-6">
-              Nossa agência oferece uma plataforma completa para criação e implementação de campanhas de marketing digital de alta performance, proporcionando aos clientes 100% de ownership enquanto cuidamos de todo o desenvolvimento estratégico.
+              Na CBAAP, unimos tecnologia e criatividade para desenvolver estratégias digitais que realmente funcionam. Nossa expertise abrange desde a criação e gestão de campanhas de tráfego pago até a implementação de soluções avançadas de analytics, tudo pensado para maximizar o retorno sobre o investimento (ROI) e impulsionar o crescimento do seu negócio.
             </p>
             <p className="text-gray-300 mb-6">
-              Av. Paulista 1000<br />
-              01310-100, São Paulo SP
+              Belo Horizonte, Minas Gerais<br />
+              Brasil
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://www.linkedin.com/company/agenciadigital/" 
+                href="https://www.linkedin.com/company/cbaap/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 transition-colors hover:bg-gray-700 hover:text-white"
@@ -97,7 +97,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Empresa</h3>
             <ul className="space-y-3">
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">Sobre Nós</Link></li>
+              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">Sobre a CBAAP</Link></li>
               <li><Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Carreiras</Link></li>
               <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Política de Privacidade</Link></li>
             </ul>
@@ -134,7 +134,7 @@ const Footer = () => {
         
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Agência de Marketing Digital. Todos os direitos reservados.
+            © {new Date().getFullYear()} CBAAP - Agência de Marketing Digital. Todos os direitos reservados.
           </p>
           <div className="flex space-x-6">
             <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Política de Privacidade</Link>

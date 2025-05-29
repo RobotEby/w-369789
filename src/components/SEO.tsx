@@ -18,38 +18,43 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'WRLDS',
-  description = 'WRLDS Technologies: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring.',
+  title = 'CBAAP',
+  description = 'CBAAP: Agência de Marketing Digital especializada em estratégias de tráfego pago, campanhas otimizadas e ROI mensurável para impulsionar seu negócio.',
   type = 'website',
-  name = 'WRLDS Technologies',
+  name = 'CBAAP',
   imageUrl = '/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png',
   publishDate,
   modifiedDate,
   author,
   category,
-  keywords = ['smart textiles', 'wearable technology', 'textile sensors', 'sports tech', 'safety monitoring', 'performance analytics'],
+  keywords = ['CBAAP', 'marketing digital', 'tráfego pago', 'campanhas otimizadas', 'ROI mensurável', 'agência digital', 'Belo Horizonte'],
   isBlogPost = false
 }) => {
   const location = useLocation();
-  const currentUrl = `https://wrlds.com${location.pathname}`;
-  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://wrlds.com${imageUrl}`;
+  const currentUrl = `https://cbaap.com.br${location.pathname}`;
+  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://cbaap.com.br${imageUrl}`;
 
   // Create base Organization JSON-LD structured data
   const organizationStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'WRLDS Technologies',
-    url: 'https://wrlds.com',
-    logo: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
-    description: 'Pioneering smart engineering solutions with textile sensors',
+    name: 'CBAAP',
+    url: 'https://cbaap.com.br',
+    logo: 'https://cbaap.com.br/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
+    description: 'Agência de Marketing Digital especializada em estratégias de alta performance',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'info@wrlds.com'
+      email: 'contato@cbaap.com.br'
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Belo Horizonte',
+      addressRegion: 'MG',
+      addressCountry: 'BR'
     },
     sameAs: [
-      'https://www.linkedin.com/company/wrlds-technologies',
-      'https://twitter.com/wrldstechnologies'
+      'https://www.linkedin.com/company/cbaap'
     ]
   };
 
@@ -67,14 +72,14 @@ const SEO: React.FC<SEOProps> = ({
     dateModified: modifiedDate || publishDate,
     author: {
       '@type': 'Organization',
-      name: author || 'WRLDS Technologies'
+      name: author || 'CBAAP'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'WRLDS Technologies',
+      name: 'CBAAP',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png'
+        url: 'https://cbaap.com.br/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png'
       }
     },
     description: description,

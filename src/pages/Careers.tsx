@@ -18,7 +18,7 @@ const Careers = () => {
             <div className="max-w-6xl mx-auto">
               <Link to="/" className="inline-flex items-center text-gray-500 hover:text-gray-700 mb-6 transition-colors">
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
+                Voltar ao Início
               </Link>
               
               <motion.h1 
@@ -27,7 +27,7 @@ const Careers = () => {
                 transition={{ duration: 0.5 }} 
                 className="text-4xl font-bold mb-6"
               >
-                Join Our Team
+                Junte-se à Nossa Equipe
               </motion.h1>
               
               <div className="prose prose-lg max-w-none">
@@ -37,7 +37,7 @@ const Careers = () => {
                   transition={{ duration: 0.5, delay: 0.2 }} 
                   className="text-xl text-gray-600 mb-4"
                 >
-                  We're looking for passionate innovators to help us revolutionize the smart textile industry.
+                  Se você é apaixonado por marketing digital e acredita no poder da inovação, a CBAAP é o lugar certo para você.
                 </motion.p>
                 
                 <motion.p
@@ -46,7 +46,7 @@ const Careers = () => {
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="text-xl text-gray-600 mb-12"
                 >
-                  We welcome both full-time professionals and interns who are eager to contribute to groundbreaking technology.
+                  Aqui, cultivamos um ambiente de criatividade, colaboração e constante aprendizado. Junte-se a nós e faça parte de uma equipe que transforma desafios em oportunidades, contribuindo para o crescimento e a evolução de marcas em um mercado cada vez mais digital.
                 </motion.p>
                 
                 <motion.div 
@@ -55,20 +55,20 @@ const Careers = () => {
                   transition={{ duration: 0.6 }}
                   className="mb-16"
                 >
-                  <h2 className="text-3xl font-bold mb-6">Why Join WRLDS?</h2>
+                  <h2 className="text-3xl font-bold mb-6">Por que Trabalhar na CBAAP?</h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     {[
                       {
-                        title: "Innovation",
-                        description: "Work on cutting-edge technology that's changing multiple industries."
+                        title: "Inovação Constante",
+                        description: "Trabalhe com as mais modernas tecnologias e estratégias de marketing digital que estão moldando o futuro."
                       },
                       {
-                        title: "Impact",
-                        description: "Create solutions that enhance safety, performance, and quality of life."
+                        title: "Impacto Real",
+                        description: "Crie soluções que transformam negócios e geram resultados mensuráveis para nossos clientes."
                       },
                       {
-                        title: "Growth",
-                        description: "Develop your skills in a rapidly expanding field with diverse challenges."
+                        title: "Crescimento Profissional",
+                        description: "Desenvolva suas habilidades em um campo em rápida expansão com desafios diversos e estimulantes."
                       }
                     ].map((benefit, i) => (
                       <div key={i} className="bg-gray-50 p-6 rounded-lg border border-gray-100 h-full">
@@ -79,33 +79,33 @@ const Careers = () => {
                   </div>
                   
                   <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm mt-12">
-                    <h3 className="font-bold text-xl mb-6">Contact Our COO</h3>
+                    <h3 className="font-bold text-xl mb-6">Entre em Contato com Nossa Equipe</h3>
                     <div className="bg-white rounded-xl p-6 border border-gray-200">
                       <div className="flex flex-col items-center text-center">
                         <img 
-                          src="/lovable-uploads/a9bb9110-964a-43b0-a5ab-7162140cd133.png"
-                          alt="Love Anderberg"
+                          src="https://images.unsplash.com/photo-1494790108755-2616c2c5608b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                          alt="Especialista em Recursos Humanos CBAAP"
                           className="w-32 h-32 rounded-full mb-4 object-cover filter grayscale"
                         />
-                        <h3 className="text-xl font-bold text-gray-900">Love Anderberg</h3>
-                        <p className="text-gray-600 mb-4">COO</p>
+                        <h3 className="text-xl font-bold text-gray-900">Equipe de Recursos Humanos</h3>
+                        <p className="text-gray-600 mb-4">CBAAP</p>
                         <div className="flex flex-col space-y-3">
-                          <a href="mailto:love@wrlds.com" className="flex items-center text-gray-700 hover:text-blue-600">
+                          <a href="mailto:carreiras@cbaap.com.br" className="flex items-center text-gray-700 hover:text-blue-600">
                             <Mail className="w-5 h-5 mr-2" />
-                            love@wrlds.com
+                            carreiras@cbaap.com.br
                           </a>
                           <a 
-                            href="https://www.linkedin.com/in/love-anderberg-67549a174/" 
+                            href="https://www.linkedin.com/company/cbaap/" 
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center text-gray-700 hover:text-blue-600"
                           >
                             <Linkedin className="w-5 h-5 mr-2" />
-                            LinkedIn Profile
+                            Perfil LinkedIn da CBAAP
                           </a>
-                          <a href="tel:+46760149508" className="flex items-center text-gray-700 hover:text-blue-600">
+                          <a href="tel:+5531999999999" className="flex items-center text-gray-700 hover:text-blue-600">
                             <Phone className="w-5 h-5 mr-2" />
-                            076-014 95 08
+                            (31) 99999-9999
                           </a>
                         </div>
                       </div>

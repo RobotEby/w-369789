@@ -15,8 +15,8 @@ const Footer = () => {
     
     if (!email) {
       toast({
-        title: "Error",
-        description: "Please enter your email address.",
+        title: "Erro",
+        description: "Por favor, digite seu endereço de email.",
         variant: "destructive"
       });
       return;
@@ -31,10 +31,10 @@ const Footer = () => {
       const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
       
       const templateParams = {
-        from_name: "Website Subscriber",
+        from_name: "Inscrito do Website",
         from_email: email,
-        message: `New subscription request from the website footer.`,
-        to_name: 'WRLDS Team',
+        message: `Nova solicitação de inscrição no newsletter do site.`,
+        to_name: 'Equipe Digital',
         reply_to: email
       };
       
@@ -46,18 +46,18 @@ const Footer = () => {
       );
       
       toast({
-        title: "Success!",
-        description: "Thank you for subscribing to our newsletter.",
+        title: "Sucesso!",
+        description: "Obrigado por se inscrever em nosso newsletter de marketing digital.",
         variant: "default"
       });
       
       setEmail("");
     } catch (error) {
-      console.error("Error sending subscription:", error);
+      console.error("Erro ao enviar inscrição:", error);
       
       toast({
-        title: "Error",
-        description: "There was a problem subscribing. Please try again later.",
+        title: "Erro",
+        description: "Houve um problema na inscrição. Tente novamente mais tarde.",
         variant: "destructive"
       });
     } finally {
@@ -72,19 +72,19 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <img 
               src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
-              alt="WRLDS Technologies Logo" 
+              alt="Logo da Agência de Marketing Digital" 
               className="h-10 w-auto mb-6 invert" // Added invert to make logo white
             />
             <p className="text-gray-300 mb-6">
-              WRLDS Technologies provides an end-to-end platform for the creation and deployment of AI-powered smart sensor devices, giving customers 100% ownership while handling the complete technological development.
+              Nossa agência oferece uma plataforma completa para criação e implementação de campanhas de marketing digital de alta performance, proporcionando aos clientes 100% de ownership enquanto cuidamos de todo o desenvolvimento estratégico.
             </p>
             <p className="text-gray-300 mb-6">
-              Hornsgatan 110<br />
-              117 26, Stockholm Sweden
+              Av. Paulista 1000<br />
+              01310-100, São Paulo SP
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://www.linkedin.com/company/wrldstechnologies/" 
+                href="https://www.linkedin.com/company/agenciadigital/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 transition-colors hover:bg-gray-700 hover:text-white"
@@ -95,21 +95,21 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Company</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">Empresa</h3>
             <ul className="space-y-3">
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Careers</Link></li>
-              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">Sobre Nós</Link></li>
+              <li><Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Carreiras</Link></li>
+              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Política de Privacidade</Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Get in Touch</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">Entre em Contato</h3>
             <form className="space-y-4" onSubmit={handleSubscribe}>
               <div>
                 <input 
                   type="email" 
-                  placeholder="Your email" 
+                  placeholder="Seu email" 
                   className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600 text-white placeholder-gray-400"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -121,9 +121,9 @@ const Footer = () => {
                 className="w-full px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Subscribing..." : (
+                {isSubmitting ? "Inscrevendo..." : (
                   <>
-                    Subscribe
+                    Inscrever-se
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </>
                 )}
@@ -134,10 +134,10 @@ const Footer = () => {
         
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} WRLDS Technologies. All rights reserved.
+            © {new Date().getFullYear()} Agência de Marketing Digital. Todos os direitos reservados.
           </p>
           <div className="flex space-x-6">
-            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Política de Privacidade</Link>
           </div>
         </div>
       </div>

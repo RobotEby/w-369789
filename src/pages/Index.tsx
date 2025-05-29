@@ -21,10 +21,10 @@ const Index = () => {
   return (
     <PageLayout>
       <SEO 
-        title="WRLDS - Smart Textile Technology" 
-        description="WRLDS Technologies: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring."
+        title="Agência de Marketing Digital - Tráfego Pago e Estratégias de Alta Performance" 
+        description="Transformamos tráfego em conversões escaláveis com estratégias de marketing digital, campanhas otimizadas e ROI mensurável para seu negócio."
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
-        keywords={['smart textiles', 'wearable technology', 'textile sensors', 'sports tech', 'safety monitoring', 'performance analytics', 'manufacturing']}
+        keywords={['marketing digital', 'tráfego pago', 'campanhas otimizadas', 'ROI mensurável', 'conversões escaláveis', 'agência digital', 'estratégias de performance']}
       />
       <Hero />
       <Features />

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -83,7 +82,7 @@ const Navbar = () => {
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 w-[500px]">
                       <li>
-                        <Link to="/projects/firecat" className="block p-4 space-y-2 rounded-md hover:bg-gray-100">
+                        <Link to="/projects/ecommerce-global" className="block p-4 space-y-2 rounded-md hover:bg-gray-100">
                           <div className="font-semibold text-gray-900">Campanha E-commerce Global</div>
                           <p className="text-sm text-gray-600 leading-relaxed">Transformamos a presença digital de uma marca de moda em uma potência de vendas, atingindo 150% de crescimento nas conversões através de estratégias integradas de tráfego pago e remarketing avançado.</p>
                         </Link>
@@ -202,7 +201,7 @@ const Navbar = () => {
             </button>
             
             <div className="hidden ml-4 mt-1 space-y-1">
-              <Link to="/projects/firecat" className={cn("block px-3 py-2 rounded-md", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
+              <Link to="/projects/ecommerce-global" className={cn("block px-3 py-2 rounded-md", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
                 setIsMenuOpen(false);
                 window.scrollTo(0, 0);
               }}>

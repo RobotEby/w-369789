@@ -12,6 +12,7 @@ import SportRetailProject from "./pages/SportRetailProject";
 import WorkwearProject from "./pages/WorkwearProject";
 import HockeyProject from "./pages/HockeyProject";
 import PetProject from "./pages/PetProject";
+import EcommerceGlobalProject from "./pages/EcommerceGlobalProject";
 import TechDetails from "./pages/TechDetails";
 import DevelopmentProcess from "./pages/DevelopmentProcess";
 import About from "./pages/About";
@@ -32,6 +33,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/projects/firecat" element={<FireCatProject />} />
+            <Route path="/projects/ecommerce-global" element={<EcommerceGlobalProject />} />
             <Route path="/projects/sport-retail" element={<SportRetailProject />} />
             <Route path="/projects/workwear" element={<WorkwearProject />} />
             <Route path="/projects/hockey" element={<HockeyProject />} />

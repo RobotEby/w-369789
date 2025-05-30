@@ -45,12 +45,16 @@ const About = () => {
                   className="mb-12"
                 >
                   <h2 className="text-3xl font-bold mb-6">Quem Somos</h2>
-                  <p className="text-xl text-gray-600 mb-6">
-                    Fundada por visionários apaixonados por marketing digital, a CBAAP surgiu com a missão de transformar dados em decisões estratégicas. Nossa jornada é marcada por desafios superados, inovações implementadas e resultados conquistados, sempre com o compromisso de elevar a sua marca ao patamar da excelência.
+                  <p className="text-xl text-gray-600 mb-6 italic leading-relaxed">
+                    Imagine um lugar onde cada byte de informação se transforma em uma estratégia vencedora; onde os desafios não são barreiras, mas trampolins para a inovação. Esse lugar existe – e é a CBAAP.
                   </p>
                   
-                  <p className="text-lg text-gray-700 mb-6">
-                    Na CBAAP, acreditamos que a transformação digital começa com a paixão por dados e resultados. Nossa equipe é dedicada a impulsionar marcas através de estratégias personalizadas, combinando inteligência de mercado com criatividade para transformar cada clique em uma oportunidade de sucesso. Somos movidos pela inovação e comprometidos com a excelência, sempre prontos para levar sua presença digital a um novo patamar.
+                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Na CBAAP, acreditamos que cada byte de informação é uma semente que, quando cultivada com paixão e precisão, se transforma na chave do sucesso. Fundada por mentes brilhantes e inquietas, nossa história é escrita com suor, desafios superados e inovações que mudam o jogo. Não somos apenas uma empresa de marketing digital – somos os arquitetos do futuro, transformando dados em estratégias que colocam sua marca em um patamar de excelência inédita.
+                  </p>
+                  
+                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Nossa jornada é marcada por uma obsessão: transformar cada clique em uma oportunidade de ouro, cada dado em uma revelação estratégica. Somos movidos pela paixão de elevar marcas através de inteligência de mercado combinada com criatividade ilimitada. Convidamos você a se juntar a nós nessa jornada revolucionária, onde cada projeto é uma nova chance de redefinir o impossível.
                   </p>
                 </motion.div>
                 
@@ -61,12 +65,16 @@ const About = () => {
                   className="mb-12"
                 >
                   <h2 className="text-3xl font-bold mb-6">O Que Fazemos e Nosso Foco</h2>
-                  <p className="text-lg text-gray-700 mb-6">
-                    Na CBAAP, unimos tecnologia e criatividade para desenvolver estratégias digitais que realmente funcionam. Nossa expertise abrange desde a criação e gestão de campanhas de tráfego pago até a implementação de soluções avançadas de analytics, tudo pensado para maximizar o retorno sobre o investimento (ROI) e impulsionar o crescimento do seu negócio.
+                  <p className="text-xl text-gray-600 mb-6 italic leading-relaxed">
+                    Na interseção entre tecnologia e criatividade, a CBAAP cria sinfonias digitais onde cada nota é estrategicamente posicionada para o sucesso do seu negócio.
                   </p>
                   
-                  <p className="text-lg text-gray-700 mb-6">
-                    Cada projeto é tratado como uma oportunidade única de inovar e superar limites. Nós não apenas implementamos estratégias digitais, nós as transformamos em resultados mensuráveis para o seu negócio.
+                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Na CBAAP, não apenas realizamos campanhas – criamos sinfonias digitais onde cada dado, cada clique, se transforma na melodia do seu sucesso. Imagine transformar cada campanha em uma obra-prima de resultados mensuráveis, onde cada investimento se converte em crescimento real e tangível. É essa a nossa promessa: elevar seu negócio através de soluções inovadoras, desde campanhas de tráfego pago meticulosamente planejadas até a implantação de analytics avançados.
+                  </p>
+                  
+                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Cada projeto é tratado como uma jornada única de transformação. Não seguimos fórmulas prontas – criamos estratégias sob medida que refletem a essência da sua marca e amplificam seu potencial. Nossa expertise transcende o convencional, mergulhando fundo na alma do seu negócio para extrair o máximo de cada oportunidade digital. Nós não apenas implementamos estratégias; nós as transformamos em histórias de sucesso mensuráveis e duradouras.
                   </p>
                 </motion.div>
                 
@@ -77,24 +85,28 @@ const About = () => {
                   className="mb-12"
                 >
                   <h2 className="text-3xl font-bold mb-6">Nossos Valores</h2>
+                  <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                    Nossa essência é construída sobre três pilares inabaláveis que sustentam cada decisão, cada estratégia, cada sonho que ajudamos a realizar:
+                  </p>
+                  
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {[
                       {
                         title: "Inovação",
-                        description: "Estamos sempre na vanguarda das tecnologias e estratégias de marketing digital, buscando soluções criativas e eficazes."
+                        description: "Estamos na linha de frente das tendências, desbravando caminhos inexplorados para trazer soluções que rompem barreiras. Para nós, inovar é respirar – é o que nos mantém vivos e sempre um passo à frente do amanhã."
                       },
                       {
                         title: "Resultados",
-                        description: "Focamos em métricas que importam, garantindo que cada estratégia implementada gere valor real e mensurável para nossos clientes."
+                        description: "Cada estratégia é calibrada para gerar impactos reais, medidos em sucessos tangíveis e crescimento exponencial. Não nos contentamos com números vazios – buscamos métricas que realmente importam e transformam realidades."
                       },
                       {
                         title: "Transparência",
-                        description: "Acreditamos na comunicação clara e honesta, mantendo nossos clientes sempre informados sobre o progresso e os resultados das campanhas."
+                        description: "Valorizamos a comunicação honesta e aberta, mantendo você informado a cada etapa, como se fôssemos parceiros de uma mesma missão. Sua confiança é nosso bem mais precioso."
                       }
                     ].map((value, i) => (
-                      <div key={i} className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                        <h3 className="font-bold text-lg mb-2">{value.title}</h3>
-                        <p className="text-gray-600">{value.description}</p>
+                      <div key={i} className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                        <h3 className="font-bold text-xl mb-3 text-gray-800">{value.title}</h3>
+                        <p className="text-gray-600 leading-relaxed">{value.description}</p>
                       </div>
                     ))}
                   </div>
@@ -104,13 +116,22 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
-                  className="bg-gradient-to-r from-gray-50 to-gray-100 p-8 rounded-xl"
+                  className="bg-gradient-to-r from-gray-50 to-gray-100 p-8 rounded-xl border border-gray-200"
                 >
-                  <h2 className="text-3xl font-bold mb-6">Nossa Localização</h2>
-                  <p className="text-lg text-gray-700 mb-4">
-                    Sediados em Belo Horizonte, Minas Gerais, atendemos clientes em todo o Brasil e América Latina, levando expertise em marketing digital para empresas de todos os tamanhos e segmentos.
+                  <h2 className="text-3xl font-bold mb-6 text-gray-800">Nossa Localização</h2>
+                  <p className="text-xl text-gray-600 mb-4 italic leading-relaxed">
+                    Do coração pulsante de Minas Gerais para o mundo inteiro – a CBAAP nasce local e conquista global.
                   </p>
-                  <p className="text-gray-600">
+                  
+                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Diretamente da vibrante Belo Horizonte, a CBAAP nasce no coração de Minas Gerais e se projeta para o mundo, conectando marcas e ideias em todo o Brasil e América Latina. Aqui, a paixão pela inovação se mistura com a tradição e a força regional, resultando em uma expertise que transcende fronteiras e transforma a presença digital dos nossos clientes.
+                  </p>
+                  
+                  <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+                    De nossa casa mineira para o seu sucesso global, levamos a essência da hospitalidade, da criatividade e da determinação que só Belo Horizonte pode inspirar. Cada cliente, independente de onde esteja, recebe o carinho e a dedicação que caracterizam nossa região e potencializam nossa atuação internacional.
+                  </p>
+                  
+                  <p className="text-gray-600 font-semibold">
                     <strong>Belo Horizonte, Minas Gerais - Brasil</strong>
                   </p>
                 </motion.div>

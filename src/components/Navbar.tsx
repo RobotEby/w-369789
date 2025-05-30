@@ -81,35 +81,35 @@ const Navbar = () => {
                     Cases de Clientes
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 w-[400px]">
+                    <ul className="grid gap-3 p-4 w-[500px]">
                       <li>
-                        <Link to="/projects/firecat" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Campanha E-commerce Global</div>
-                          <p className="text-sm text-gray-500">Estratégia completa de tráfego pago para moda e lifestyle</p>
+                        <Link to="/projects/firecat" className="block p-4 space-y-2 rounded-md hover:bg-gray-100">
+                          <div className="font-semibold text-gray-900">Campanha E-commerce Global</div>
+                          <p className="text-sm text-gray-600 leading-relaxed">Transformamos a presença digital de uma marca de moda em uma potência de vendas, atingindo 150% de crescimento nas conversões através de estratégias integradas de tráfego pago e remarketing avançado.</p>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/projects/sport-retail" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Lead Generation B2B</div>
-                          <p className="text-sm text-gray-500">Funil de captação qualificada para SaaS corporativo</p>
+                        <Link to="/projects/sport-retail" className="block p-4 space-y-2 rounded-md hover:bg-gray-100">
+                          <div className="font-semibold text-gray-900">Lead Generation B2B</div>
+                          <p className="text-sm text-gray-600 leading-relaxed">Desenvolvemos um funil inteligente e automatizado para SaaS corporativo, utilizando inbound e account-based marketing para gerar leads qualificados com ROI que redefine expectativas do mercado.</p>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/projects/workwear" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Analytics & Performance</div>
-                          <p className="text-sm text-gray-500">Dashboard personalizado para monitoramento de KPIs</p>
+                        <Link to="/projects/workwear" className="block p-4 space-y-2 rounded-md hover:bg-gray-100">
+                          <div className="font-semibold text-gray-900">Analytics & Performance</div>
+                          <p className="text-sm text-gray-600 leading-relaxed">Dashboard personalizado para monitoramento em tempo real de KPIs, permitindo ajustes estratégicos ágeis e otimização contínua que transforma dados em crescimento sustentável.</p>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/projects/hockey" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Campanhas Multicanal</div>
-                          <p className="text-sm text-gray-500">Estratégia omnichannel para varejo premium</p>
+                        <Link to="/projects/hockey" className="block p-4 space-y-2 rounded-md hover:bg-gray-100">
+                          <div className="font-semibold text-gray-900">Campanhas Multicanal</div>
+                          <p className="text-sm text-gray-600 leading-relaxed">Estratégia omnichannel premium que integra redes sociais, e-mail marketing e anúncios pagos, criando experiência de marca unificada com engajamento elevado e vendas expressivas.</p>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/projects/pet-tracker" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Growth Hacking Startup</div>
-                          <p className="text-sm text-gray-500">Estratégias de crescimento viral para fintech</p>
+                        <Link to="/projects/pet-tracker" className="block p-4 space-y-2 rounded-md hover:bg-gray-100">
+                          <div className="font-semibold text-gray-900">Growth Hacking Startup</div>
+                          <p className="text-sm text-gray-600 leading-relaxed">Abordagem disruptiva para fintech com técnicas de growth hacking e experimentação ágil, transformando desafios em crescimento exponencial e escalabilidade revolucionária.</p>
                         </Link>
                       </li>
                     </ul>

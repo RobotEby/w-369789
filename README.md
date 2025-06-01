@@ -44,7 +44,7 @@ A organização do repositório segue um padrão modular para facilitar a manute
 2. **Acesse o diretório do projeto:**
 
    ```bash
-   cd c-6954
+   cd w-369789
 
 3. **Instale as dependências:**
    

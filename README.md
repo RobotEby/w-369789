@@ -1,69 +1,63 @@
-# Welcome to your Lovable project
+# w-369789
 
-## Project info
+A CBAAP tem como foco transformar o marketing digital para pequenos negócios por meio de um modelo consultivo inovador. Através de reuniões estratégicas, a agência busca entender profundamente as necessidades e desejos de cada cliente. Ao combinar esse conhecimento com táticas avançadas de anúncios pagos, a CBAAP propõe soluções que não só atraem mais clientes, mas também potencializam o crescimento sustentável do negócio.
 
-**URL**: https://lovable.dev/projects/ec1d4f1e-2506-4da5-a91b-34afa90cceb6
+---
 
-## How can I edit this code?
+## Visão Geral
 
-There are several ways of editing your application.
+Este projeto foi desenvolvido com foco em performance e escalabilidade, utilizando ferramentas modernas e padrões de mercado. Ele oferece uma base sólida para a construção de interfaces ricas, mantendo uma organização de código clara e modular.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ec1d4f1e-2506-4da5-a91b-34afa90cceb6) and start prompting.
+## Tecnologias Utilizadas
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Vite** – Ferramenta de build e servidor de desenvolvimento para aplicações modernas.
+- **TypeScript** – Superset de JavaScript que adiciona tipagem estática e recursos avançados.
+- **React** – Biblioteca para construção de interfaces interativas e componentes reutilizáveis.
+- **shadcn-ui** – Conjunto de componentes UI customizáveis, ideal para garantir um design consistente.
+- **Tailwind CSS** – Framework CSS utilitário que facilita a criação de layouts responsivos de forma ágil.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Estrutura do Projeto
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+A organização do repositório segue um padrão modular para facilitar a manutenção e a escalabilidade:
 
-Follow these steps:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Configuração do Ambiente de Desenvolvimento
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Pré-Requisitos
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- **Node.js** (versão 14 ou superior)
+- **npm** (ou outro gerenciador de pacotes compatível)
 
-**Edit a file directly in GitHub**
+### Passos para Configuração
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. **Clone o repositório:**
 
-**Use GitHub Codespaces**
+   ```bash
+   git clone <https://github.com/RobotEby/c-6954.git>
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+2. **Acesse o diretório do projeto:**
 
-## What technologies are used for this project?
+   ```bash
+   cd c-6954
 
-This project is built with .
+3. **Instale as dependências:**
+   
+   ```bash
+   npm install
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+4. **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
 
-## How can I deploy this project?
+### Contato
 
-Simply open [Lovable](https://lovable.dev/projects/ec1d4f1e-2506-4da5-a91b-34afa90cceb6) and click on Share -> Publish.
+Para mais informações ou esclarecimento de dúvidas, entre em contato:
 
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- E-mail: kerlon.amaral1@gmail.com
+- E-mail: cbaap.agencia@gmail.com

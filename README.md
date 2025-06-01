@@ -39,7 +39,7 @@ A organização do repositório segue um padrão modular para facilitar a manute
 1. **Clone o repositório:**
 
    ```bash
-   git clone <https://github.com/RobotEby/c-6954.git>
+   git clone <https://github.com/RobotEby/w-369789.git>
 
 2. **Acesse o diretório do projeto:**
 

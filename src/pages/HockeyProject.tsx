@@ -1,9 +1,93 @@
 
 import ProjectPageLayout from '@/components/ProjectPageLayout';
 import SEO from '@/components/SEO';
+import MetricsCard from '@/components/MetricsCard';
+import BenefitsList from '@/components/BenefitsList';
+import StrategyFeaturesGrid from '@/components/StrategyFeaturesGrid';
 import { TrendingUp, Target, BarChart3, Zap, Users, Globe, Activity, FlaskConical, FileSymlink } from 'lucide-react';
 
 const HockeyProject = () => {
+  const metricsData = [
+    {
+      icon: Target,
+      title: "Vendas Acima da Meta",
+      value: "7.400",
+      description: "Unidades vendidas (+48% sobre meta)",
+      bgColor: "bg-green-50",
+      iconColor: "text-green-600",
+      textColor: "text-green-800"
+    },
+    {
+      icon: BarChart3,
+      title: "Leads B2B Qualificados",
+      value: "14.237",
+      description: "Score ≥ 80/100 para retail",
+      bgColor: "bg-blue-50",
+      iconColor: "text-blue-600",
+      textColor: "text-blue-800"
+    },
+    {
+      icon: Zap,
+      title: "Redução de CAC",
+      value: "-32%",
+      description: "Vs campanhas anteriores",
+      bgColor: "bg-purple-50",
+      iconColor: "text-purple-600",
+      textColor: "text-purple-800"
+    },
+    {
+      icon: Activity,
+      title: "Receita Incremental",
+      value: "R$ 5,8M",
+      description: "Em apenas 3 meses",
+      bgColor: "bg-orange-50",
+      iconColor: "text-orange-600",
+      textColor: "text-orange-800"
+    }
+  ];
+
+  const strategyFeatures = [
+    {
+      icon: TrendingUp,
+      title: "Search & Shopping Ads Certeiros",
+      description: "Campanhas em Google/Bing com foco em \"patins profissionais\" e \"sensor hóquei\", alcançando CTR de 8,4% e dominando a primeira página."
+    },
+    {
+      icon: Activity,
+      title: "Social Ads Multicanal",
+      description: "Instagram Reels, TikTok e LinkedIn com desafios #BladeData gerando 12M de views e 45k de UGC espontâneo."
+    },
+    {
+      icon: Globe,
+      title: "YouTube Pre-Roll com Dados Reais",
+      description: "Highlights de coleta de dados em jogos da NHL, mostrando métricas de elite em tempo real durante partidas oficiais."
+    },
+    {
+      icon: Users,
+      title: "Influencers & Pro-Players Autênticos",
+      description: "Parcerias estratégicas com atletas profissionais gerando UGC genuíno e prova social inquestionável."
+    }
+  ];
+
+  const benefits = [
+    {
+      title: "Consistência de Mensagem Sincronizada",
+      description: "8 canais simultâneos entregando a mesma experiência de marca, da timeline do Instagram à arena física."
+    },
+    {
+      title: "Dashboards em Tempo Real",
+      description: "Capacidade de pivotar criativos e otimizar budgets em menos de 48 horas baseado em performance real."
+    },
+    {
+      title: "Comunidade Engajada e UGC Espontâneo",
+      description: "Economia de mídia estimada em R$ 600k através de conteúdo orgânico gerado pelos próprios usuários."
+    },
+    {
+      title: "Pipeline Robusto para Expansão",
+      description: "Share-of-voice social cresceu 120% na vertical hóquei, criando base sólida para novos esportes de gelo."
+    }
+  ];
+
   return (
     <ProjectPageLayout
       title="ICE HOCKEY ELITE SKILL TRACKER"
@@ -57,39 +141,7 @@ const HockeyProject = () => {
         pixel avançado e CRM inteligente, criando uma jornada fluida do primeiro clique à venda final.
       </p>
       
-      <div className="grid md:grid-cols-2 gap-6 my-8">
-        <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 flex items-start">
-          <TrendingUp className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
-          <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-900">Search & Shopping Ads Certeiros</h4>
-            <p className="text-gray-700">Campanhas em Google/Bing com foco em "patins profissionais" e "sensor hóquei", alcançando CTR de 8,4% e dominando a primeira página.</p>
-          </div>
-        </div>
-        
-        <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 flex items-start">
-          <Activity className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
-          <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-900">Social Ads Multicanal</h4>
-            <p className="text-gray-700">Instagram Reels, TikTok e LinkedIn com desafios #BladeData gerando 12M de views e 45k de UGC espontâneo.</p>
-          </div>
-        </div>
-        
-        <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 flex items-start">
-          <Globe className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
-          <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-900">YouTube Pre-Roll com Dados Reais</h4>
-            <p className="text-gray-700">Highlights de coleta de dados em jogos da NHL, mostrando métricas de elite em tempo real durante partidas oficiais.</p>
-          </div>
-        </div>
-        
-        <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 flex items-start">
-          <Users className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
-          <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-900">Influencers & Pro-Players Autênticos</h4>
-            <p className="text-gray-700">Parcerias estratégicas com atletas profissionais gerando UGC genuíno e prova social inquestionável.</p>
-          </div>
-        </div>
-      </div>
+      <StrategyFeaturesGrid features={strategyFeatures} />
       
       <h4 className="text-xl font-semibold mb-4 text-gray-900">Execução de Canais: Cada Jogada Planejada</h4>
       <ul className="list-disc pl-6 space-y-3 mb-8 text-gray-700">
@@ -102,77 +154,13 @@ const HockeyProject = () => {
       
       <h3 className="text-2xl font-semibold mb-4 mt-8 text-gray-900">Métricas que Quebram Recordes</h3>
       <div className="grid md:grid-cols-2 gap-6 my-8">
-        <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-          <div className="flex items-center mb-3">
-            <Target className="h-5 w-5 text-green-600 mr-2" />
-            <h4 className="font-semibold text-green-800">Vendas Acima da Meta</h4>
-          </div>
-          <p className="text-3xl font-bold text-green-700 mb-1">7.400</p>
-          <p className="text-green-600 text-sm">Unidades vendidas (+48% sobre meta)</p>
-        </div>
-        
-        <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-          <div className="flex items-center mb-3">
-            <BarChart3 className="h-5 w-5 text-blue-600 mr-2" />
-            <h4 className="font-semibold text-blue-800">Leads B2B Qualificados</h4>
-          </div>
-          <p className="text-3xl font-bold text-blue-700 mb-1">14.237</p>
-          <p className="text-blue-600 text-sm">Score ≥ 80/100 para retail</p>
-        </div>
-        
-        <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-          <div className="flex items-center mb-3">
-            <Zap className="h-5 w-5 text-purple-600 mr-2" />
-            <h4 className="font-semibold text-purple-800">Redução de CAC</h4>
-          </div>
-          <p className="text-3xl font-bold text-purple-700 mb-1">-32%</p>
-          <p className="text-purple-600 text-sm">Vs campanhas anteriores</p>
-        </div>
-        
-        <div className="bg-orange-50 p-6 rounded-lg border border-orange-200">
-          <div className="flex items-center mb-3">
-            <Activity className="h-5 w-5 text-orange-600 mr-2" />
-            <h4 className="font-semibold text-orange-800">Receita Incremental</h4>
-          </div>
-          <p className="text-3xl font-bold text-orange-700 mb-1">R$ 5,8M</p>
-          <p className="text-orange-600 text-sm">Em apenas 3 meses</p>
-        </div>
+        {metricsData.map((metric, index) => (
+          <MetricsCard key={index} {...metric} />
+        ))}
       </div>
       
       <h3 className="text-2xl font-semibold mb-4 mt-8 text-gray-900">Benefícios que Transformam Marcas em Legends</h3>
-      <div className="space-y-6 mb-8">
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3 mt-1 font-bold">✓</div>
-          <div>
-            <h4 className="font-semibold text-gray-900">Consistência de Mensagem Sincronizada</h4>
-            <p className="text-gray-700">8 canais simultâneos entregando a mesma experiência de marca, da timeline do Instagram à arena física.</p>
-          </div>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3 mt-1 font-bold">✓</div>
-          <div>
-            <h4 className="font-semibold text-gray-900">Dashboards em Tempo Real</h4>
-            <p className="text-gray-700">Capacidade de pivotar criativos e otimizar budgets em menos de 48 horas baseado em performance real.</p>
-          </div>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3 mt-1 font-bold">✓</div>
-          <div>
-            <h4 className="font-semibold text-gray-900">Comunidade Engajada e UGC Espontâneo</h4>
-            <p className="text-gray-700">Economia de mídia estimada em R$ 600k através de conteúdo orgânico gerado pelos próprios usuários.</p>
-          </div>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3 mt-1 font-bold">✓</div>
-          <div>
-            <h4 className="font-semibold text-gray-900">Pipeline Robusto para Expansão</h4>
-            <p className="text-gray-700">Share-of-voice social cresceu 120% na vertical hóquei, criando base sólida para novos esportes de gelo.</p>
-          </div>
-        </div>
-      </div>
+      <BenefitsList benefits={benefits} />
       
       <h3 className="text-2xl font-semibold mb-4 mt-8 text-gray-900">Próximos Passos: O Futuro é Agora</h3>
       <p className="text-gray-700 leading-relaxed mb-6">

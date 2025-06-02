@@ -1,5 +1,5 @@
 
-import { ArrowLeft, ArrowRight, FileText, Code, Cpu } from 'lucide-react';
+import { ArrowLeft, ArrowRight, FileText, Code, Cpu, Zap, Users, BarChart3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import ProductPlatform from '@/components/ProductPlatform';
@@ -30,7 +30,7 @@ const TechDetails = () => {
           <div className="max-w-6xl mx-auto">
             <Link to="/" className="inline-flex items-center text-gray-500 hover:text-gray-700 mb-6 transition-colors">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
+              Voltar ao Início
             </Link>
             
             <motion.h1 initial={{
@@ -42,7 +42,7 @@ const TechDetails = () => {
           }} transition={{
             duration: 0.5
           }} className="text-3xl sm:text-4xl font-bold mb-6">
-              Technical Deep Dive
+              Detalhes Técnicos
             </motion.h1>
             
             <div className="prose prose-lg max-w-none">
@@ -54,10 +54,29 @@ const TechDetails = () => {
               duration: 0.5,
               delay: 0.2
             }} className="text-base sm:text-lg text-gray-600 mb-12">
-                Explore the technical details behind our smart textile sensor technology and learn how our system architecture enables rapid development and deployment.
+                Entenda como nossa plataforma de marketing digital transforma dados em resultados através de arquitetura avançada e processos otimizados para máximo ROI.
               </motion.p>
+
+              {/* Introdução Impactante */}
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.6
+            }} className="mb-16">
+                <div className="bg-blue-50 p-6 rounded-lg mb-8 border border-blue-200">
+                  <h3 className="text-xl font-semibold mb-3 text-gray-900">Por trás de cada clique existe um fluxo de dados que impulsiona decisões em tempo real.</h3>
+                  <p className="text-gray-800 leading-relaxed">
+                    Nossa central elétrica de dados processa milhões de eventos por minuto, transformando cada interação em insights acionáveis. 
+                    Com arquitetura escalável e algoritmos preditivos, entregamos otimização contínua de campanhas e ROI crescente para nossos clientes.
+                  </p>
+                </div>
+              </motion.div>
               
-              {/* System Architecture Section */}
+              {/* Visão Geral da Arquitetura */}
               <motion.div initial={{
               opacity: 0,
               y: 20
@@ -69,29 +88,52 @@ const TechDetails = () => {
             }} className="mb-16">
                 <div className="flex items-center gap-2 mb-4">
                   <FileText className="w-5 h-5 text-gray-700" />
-                  <h2 className="text-2xl font-bold">System Architecture</h2>
+                  <h2 className="text-2xl font-bold">Visão Geral da Arquitetura</h2>
                 </div>
                 
                 <p className="text-gray-600 mb-8 text-base max-w-3xl">
-                  Our platform uses a three-tier architecture connecting physical devices to our cloud services and user applications. 
-                  The diagram below illustrates how data flows through our system, from sensor collection to user-facing applications.
+                  Nossa plataforma opera em três camadas integradas que garantem coleta, processamento e ativação de dados 
+                  para campanhas de marketing digital com performance superior. Veja como cada camada entrega valor:
                 </p>
 
-                {/* Progress bar showing flow */}
-                <div className="w-full mb-6">
-                  
-                  
-                </div>
-                
                 {/* Product Platform Architecture Diagram */}
                 <Card className="bg-white rounded-lg mb-10 border border-gray-200 shadow-sm">
                   <CardContent className="p-4 lg:p-6">
                     <ProductPlatform />
                   </CardContent>
                 </Card>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
+                    <h4 className="font-semibold text-lg mb-3 text-blue-900">1. Dispositivos & Fontes de Dados</h4>
+                    <ul className="text-blue-800 space-y-2 text-sm">
+                      <li>• Pixels de rastreamento avançados</li>
+                      <li>• APIs nativas Google/Facebook/TikTok</li>
+                      <li>• Integração CRM e e-commerce</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg border border-green-200">
+                    <h4 className="font-semibold text-lg mb-3 text-green-900">2. Plataforma CBAAP Cloud</h4>
+                    <ul className="text-green-800 space-y-2 text-sm">
+                      <li>• Motor AI/ML para otimização</li>
+                      <li>• Data Lake com 99,99% disponibilidade</li>
+                      <li>• Computação de borda para latência mínima</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg border border-purple-200">
+                    <h4 className="font-semibold text-lg mb-3 text-purple-900">3. Aplicações de Usuário</h4>
+                    <ul className="text-purple-800 space-y-2 text-sm">
+                      <li>• Dashboards em tempo real</li>
+                      <li>• Automação de campanhas</li>
+                      <li>• Relatórios customizados</li>
+                    </ul>
+                  </div>
+                </div>
               </motion.div>
-              
-              {/* Our Approach Section */}
+
+              {/* Fluxo de Dados */}
               <motion.div initial={{
               opacity: 0,
               y: 20
@@ -101,55 +143,206 @@ const TechDetails = () => {
             }} transition={{
               duration: 0.6,
               delay: 0.2
-            }}>
+            }} className="mb-16">
                 <div className="flex items-center gap-2 mb-4">
                   <Code className="w-5 h-5 text-gray-700" />
-                  <h2 className="text-2xl font-bold">Our Approach</h2>
+                  <h2 className="text-2xl font-bold">Fluxo de Dados Passo a Passo</h2>
                 </div>
                 
-                <p className="text-gray-600 mb-8 text-base max-w-3xl">
-                  At WRLDS, we've developed a systematic approach to creating smart textile solutions that combines technical innovation with practical implementation. 
-                  Our comprehensive development process ensures that every project moves efficiently from concept to market-ready product.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                  {[{
-                  title: "Discovery",
-                  icon: <Cpu className="w-5 h-5 text-gray-700" />,
-                  description: "We begin with thorough market research and requirements gathering to understand your specific needs and opportunities."
-                }, {
-                  title: "Design & Prototyping",
-                  icon: <Code className="w-5 h-5 text-gray-700" />,
-                  description: "Our teams create initial designs and functional prototypes that allow for early testing and iteration."
-                }, {
-                  title: "Development & Testing",
-                  icon: <FileText className="w-5 h-5 text-gray-700" />,
-                  description: "We rigorously develop and test all components to ensure they meet performance and reliability standards."
-                }].map((phase, i) => <motion.div key={phase.title} initial={{
-                  opacity: 0,
-                  y: 10
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} transition={{
-                  duration: 0.4,
-                  delay: 0.3 + i * 0.1
-                }} className="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:shadow-md transition-all duration-300">
-                      <div className="flex items-center gap-2 mb-3">
-                        {phase.icon}
-                        <h3 className="font-semibold text-lg">{phase.title}</h3>
+                <div className="space-y-4 mb-8">
+                  {[
+                    { step: "1", title: "Coleta", desc: "Pixels, APIs e eventos de aplicativo capturam cada interação do usuário em tempo real" },
+                    { step: "2", title: "Transmissão Segura", desc: "Criptografia AES-256 e latência inferior a 200ms garantem dados íntegros e rápidos" },
+                    { step: "3", title: "Processamento", desc: "Motor de AI detecta padrões de conversão e prediz comportamentos futuros" },
+                    { step: "4", title: "Ativação", desc: "Algoritmos otimizam lances, segmentam públicos e disparam campanhas automaticamente" },
+                    { step: "5", title: "Visualização", desc: "Dashboards em tempo real com alertas automáticos para tomada de decisão imediata" }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start p-4 bg-gray-50 rounded-lg border border-gray-200">
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm mr-4">
+                        {item.step}
                       </div>
-                      <p className="text-gray-600 text-base">{phase.description}</p>
-                    </motion.div>)}
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">{item.title}</h4>
+                        <p className="text-gray-700 text-sm">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
-            </div>
-            
-            <div className="mt-16 pt-8 border-t border-gray-200">
-              <Link to="/development-process" className="inline-flex items-center px-5 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group">
-                Explore Our Development Process
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+
+              {/* Camadas Tecnológicas */}
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.6,
+              delay: 0.3
+            }} className="mb-16">
+                <div className="flex items-center gap-2 mb-4">
+                  <Cpu className="w-5 h-5 text-gray-700" />
+                  <h2 className="text-2xl font-bold">Camadas Tecnológicas Essenciais</h2>
+                </div>
+
+                <div className="overflow-x-auto mb-8">
+                  <table className="w-full border-collapse border border-gray-200 bg-white rounded-lg">
+                    <thead>
+                      <tr className="bg-gray-50">
+                        <th className="border border-gray-200 px-4 py-3 text-left font-semibold">Componente</th>
+                        <th className="border border-gray-200 px-4 py-3 text-left font-semibold">Função</th>
+                        <th className="border border-gray-200 px-4 py-3 text-left font-semibold">Benefício</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        ["Ingestão & ETL Otimizado", "Coleta e transforma dados de múltiplas fontes", "Visão 360° do cliente em tempo real"],
+                        ["Data Lake Escalável", "Armazena petabytes com 99,99% disponibilidade", "Histórico completo para análise preditiva"],
+                        ["Módulo AI & Machine Learning", "Modelos preditivos de LTV/CAC", "Redução de até 32% no CPA"],
+                        ["Computação de Borda", "Processamento local para latência mínima", "Remarketing dinâmico instantâneo"],
+                        ["Interface de APIs", "REST + Webhooks para integração", "Tempo de integração < 5 dias"]
+                      ].map((row, index) => (
+                        <tr key={index} className="hover:bg-gray-50">
+                          <td className="border border-gray-200 px-4 py-3 font-medium">{row[0]}</td>
+                          <td className="border border-gray-200 px-4 py-3">{row[1]}</td>
+                          <td className="border border-gray-200 px-4 py-3 text-green-700 font-medium">{row[2]}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </motion.div>
+
+              {/* Processo de Desenvolvimento */}
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.6,
+              delay: 0.4
+            }} className="mb-16">
+                <div className="flex items-center gap-2 mb-4">
+                  <Users className="w-5 h-5 text-gray-700" />
+                  <h2 className="text-2xl font-bold">Processo de Desenvolvimento CBAAP</h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                  {[
+                    { title: "Discovery", desc: "Pesquisa de mercado e mapeamento de metas", value: "Estratégia alinhada a KPIs" },
+                    { title: "Design & Prototipagem", desc: "Wireframes, POCs e testes A/B rápidos", value: "Validação em < 4 semanas" },
+                    { title: "Desenvolvimento & Testes", desc: "Sprints ágeis com QA automatizado", value: "Lançamento sem retrabalho" },
+                    { title: "Implantação & Otimização", desc: "Monitoramento 24/7 e ciclos de melhoria", value: "ROI crescente e sustentável" }
+                  ].map((phase, index) => (
+                    <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                      <h4 className="font-semibold text-lg mb-2 text-gray-900">{phase.title}</h4>
+                      <p className="text-gray-600 text-sm mb-3">{phase.desc}</p>
+                      <div className="text-blue-600 font-medium text-sm">{phase.value}</div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Diferenciais de Performance */}
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.6,
+              delay: 0.5
+            }} className="mb-16">
+                <div className="flex items-center gap-2 mb-4">
+                  <BarChart3 className="w-5 h-5 text-gray-700" />
+                  <h2 className="text-2xl font-bold">Diferenciais de Performance</h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  {[
+                    { metric: "2 milhões", desc: "eventos processados por minuto sem queda de performance" },
+                    { metric: "32%", desc: "redução média no CPA através de algoritmos preditivos" },
+                    { metric: "< 5 dias", desc: "tempo médio de integração via API" },
+                    { metric: "99,99%", desc: "disponibilidade com escalabilidade horizontal pay-per-use" }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-gray-200">
+                      <div className="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                      <div>
+                        <span className="font-bold text-xl text-green-700">{item.metric}</span>
+                        <p className="text-gray-700">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Casos de Uso */}
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.6,
+              delay: 0.6
+            }} className="mb-16">
+                <div className="flex items-center gap-2 mb-4">
+                  <Zap className="w-5 h-5 text-gray-700" />
+                  <h2 className="text-2xl font-bold">Casos de Uso em Ação</h2>
+                </div>
+
+                <div className="space-y-4 mb-8">
+                  {[
+                    { sector: "E-commerce", solution: "Otimização de funil em tempo real", result: "Aumento de 45% na taxa de conversão" },
+                    { sector: "B2B SaaS", solution: "Lead scoring preditivo baseado em comportamento", result: "Redução de 60% no ciclo de vendas" },
+                    { sector: "Varejo Físico", solution: "Integração POS → campanhas omnichannel", result: "ROI 8x em campanhas de reativação" }
+                  ].map((usecase, index) => (
+                    <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                      <h4 className="font-semibold text-lg text-gray-900 mb-2">{usecase.sector}</h4>
+                      <p className="text-gray-700 mb-2">{usecase.solution}</p>
+                      <div className="text-blue-600 font-medium">{usecase.result}</div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Conclusão & CTA */}
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.6,
+              delay: 0.7
+            }} className="mb-16">
+                <h2 className="text-2xl font-bold mb-6 text-gray-900">Pronto para Acelerar Seus Resultados?</h2>
+                
+                <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg p-8 text-white mb-8">
+                  <h3 className="text-xl font-semibold mb-4">
+                    Veja esses números aplicados ao seu negócio
+                  </h3>
+                  <p className="text-blue-100 mb-6 leading-relaxed">
+                    Converse com nossos engenheiros de soluções e descubra como nossa plataforma pode transformar 
+                    seus dados em crescimento sustentável. Agenda limitada a 5 empresas por semana.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link 
+                      to="/development-process" 
+                      className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition-all font-semibold"
+                    >
+                      Quero a Sessão Técnica
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>

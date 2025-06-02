@@ -35,23 +35,23 @@ const PetProject = () => {
       
       <h3 className="text-2xl font-semibold mb-4 text-gray-900">Background: A Origem da Disrupção</h3>
       <p className="text-gray-700 leading-relaxed mb-8">
-        **Pain point detectado**: seguros pet custavam uma fortuna, dados de saúde eram inexistentes e 73% dos cães 
+        <strong>Pain point detectado</strong>: seguros pet custavam uma fortuna, dados de saúde eram inexistentes e 73% dos cães 
         urbanos viviam sedentários. Nossa equipe — 3 founders (IoT + veterinária + growth) em um coworking de Londres — 
-        teve uma meta-moonshot audaciosa: **virar a 'Nubank dos Pets' em 18 meses**. O mercado de £2,8 bi estava maduro 
+        teve uma meta-moonshot audaciosa: <strong>virar a 'Nubank dos Pets' em 18 meses</strong>. O mercado de £2,8 bi estava maduro 
         para disrupção através de dados em tempo real e loops de crescimento que ninguém havia testado.
       </p>
       
       <h3 className="text-2xl font-semibold mb-4 text-gray-900">O Desafio que Exigia Growth Cirúrgico</h3>
       <p className="text-gray-700 leading-relaxed mb-8">
-        **Budget < £150k**, necessidade de prova de mercado em 90 dias e concorrentes com hardware caro + apps confusos. 
-        Definimos nosso **KPI North Star**: "Minutos Ativos Monitorados por Pet/dia" — uma métrica que conectava saúde 
+        <strong>Budget &lt; £150k</strong>, necessidade de prova de mercado em 90 dias e concorrentes com hardware caro + apps confusos. 
+        Definimos nosso <strong>KPI North Star</strong>: "Minutos Ativos Monitorados por Pet/dia" — uma métrica que conectava saúde 
         animal, engajamento do tutor e valor para seguradora. Cada sprint de 2 semanas tinha que provar tração mensurável 
         ou pivotar. Ship fast, learn faster.
       </p>
       
       <h3 className="text-2xl font-semibold mb-4 text-gray-900">Estratégia de Growth Hacking: O Motor Viral</h3>
       <p className="text-gray-700 leading-relaxed mb-6">
-        Desenvolvemos **6 loops de crescimento interconectados** que transformaram cada usuário ativo em um multiplicador 
+        Desenvolvemos <strong>6 loops de crescimento interconectados</strong> que transformaram cada usuário ativo em um multiplicador 
         orgânico. Nossa stack enxuta (Figma → ESP32 → Klaviyo → Mixpanel → Zapier → Webflow) permitiu iterar hipóteses 
         em tempo real, validando cada experimento antes de escalar mídia paga.
       </p>
@@ -175,9 +175,9 @@ const PetProject = () => {
       
       <h3 className="text-2xl font-semibold mb-4 mt-8 text-gray-900">Lessons Learned & Próximos Growth Hacks</h3>
       <p className="text-gray-700 leading-relaxed mb-6">
-        Três aprendizados-chave moldaram nossa **roadmap de escala**: (1) algoritmo de detecção de arritmia via 
+        Três aprendizados-chave moldaram nossa <strong>roadmap de escala</strong>: (1) algoritmo de detecção de arritmia via 
         parceria com universidade veterinária, (2) A/B de onboarding 100% via WhatsApp (sem app), e (3) expansão 
-        LATAM através de micro-influencers locais. Nossa feature **"Pet Social"** está em testes para aumentar 
+        LATAM através de micro-influencers locais. Nossa feature <strong>"Pet Social"</strong> está em testes para aumentar 
         viral loops em +50%, criando uma rede social canina baseada em dados de atividade.
       </p>
       

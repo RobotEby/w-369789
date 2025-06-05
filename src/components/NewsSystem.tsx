@@ -251,7 +251,7 @@ const NewsSystem: React.FC<NewsSystemProps> = ({
             <div className="text-sm text-gray-600">Precisão IA</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-purple-600">< 2min</div>
+            <div className="text-2xl font-bold text-purple-600">&lt; 2min</div>
             <div className="text-sm text-gray-600">Latência</div>
           </div>
           <div>

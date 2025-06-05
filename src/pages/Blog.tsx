@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
 import BlogPostCard from '@/components/BlogPostCard';
+import NewsSystem from '@/components/NewsSystem';
 import { blogPosts } from '@/data/blogPosts';
 
 const Blog = () => {
@@ -35,7 +36,20 @@ const Blog = () => {
         </div>
       </div>
       
+      {/* Sistema de Notícias em Tempo Real */}
       <div className="container mx-auto px-4 py-16">
+        <NewsSystem maxItems={9} autoRefresh={true} />
+      </div>
+
+      {/* Seção de Posts do Blog */}
+      <div className="container mx-auto px-4 py-16 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Insights CBAAP</h2>
+          <p className="text-xl text-gray-600">
+            Artigos exclusivos da nossa equipe sobre estratégias avançadas de marketing digital
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredPost && (
             <Link to={`/blog/${featuredPost.slug}`} className="col-span-1 md:col-span-2 lg:col-span-3">

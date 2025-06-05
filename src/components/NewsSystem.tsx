@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { Clock, TrendingUp, Zap, ExternalLink, RefreshCw } from 'lucide-react';
+import { Clock, TrendingUp, Zap, ExternalLink, RefreshCw, Key, AlertCircle } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
+import { useToast } from '@/hooks/use-toast';
 
 interface NewsItem {
   id: string;
@@ -32,84 +34,88 @@ const NewsSystem: React.FC<NewsSystemProps> = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('todas');
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date());
+  const [apiKey, setApiKey] = useState<string>('');
+  const [showApiInput, setShowApiInput] = useState<boolean>(false);
+  const { toast } = useToast();
 
-  // Simulação de dados de notícias (em produção, isso viria de uma API real)
-  const mockNewsData: NewsItem[] = [
-    {
-      id: '1',
-      title: 'Google lança nova ferramenta de IA para otimização de campanhas publicitárias',
-      summary: 'A nova funcionalidade utiliza machine learning avançado para prever comportamentos do consumidor e ajustar lances automaticamente, prometendo aumentar o ROI em até 35%.',
-      category: 'marketing-digital',
-      source: 'TechCrunch Brasil',
-      publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
-      url: '#',
-      imageUrl: '/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png',
-      relevanceScore: 95
-    },
-    {
-      id: '2',
-      title: 'ChatGPT-4 Turbo: Revolucionando a criação de conteúdo para marketing',
-      summary: 'A nova versão do ChatGPT oferece capacidades avançadas de criação de copy, análise de sentimentos e personalização de mensagens para diferentes segmentos de público.',
-      category: 'inteligencia-artificial',
-      source: 'AI News Brasil',
-      publishedAt: new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString(),
-      url: '#',
-      imageUrl: '/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png',
-      relevanceScore: 92
-    },
-    {
-      id: '3',
-      title: 'Meta anuncia novas métricas de attribution para iOS 17',
-      summary: 'Após mudanças na política de privacidade da Apple, Meta desenvolve soluções inovadoras para tracking e attribution, mantendo a eficácia das campanhas publicitárias.',
-      category: 'tecnologia',
-      source: 'Marketing Tech',
-      publishedAt: new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString(),
-      url: '#',
-      imageUrl: '/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png',
-      relevanceScore: 88
-    },
-    {
-      id: '4',
-      title: 'Análise preditiva em tempo real: O futuro do e-commerce',
-      summary: 'Novas tecnologias de análise de dados permitem prever comportamentos de compra com 94% de precisão, revolucionando estratégias de remarketing e personalização.',
-      category: 'inovacao',
-      source: 'E-commerce Brasil',
-      publishedAt: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(),
-      url: '#',
-      imageUrl: '/lovable-uploads/39671993-1bb4-4bb6-8819-3ca5c07c0042.png',
-      relevanceScore: 90
-    },
-    {
-      id: '5',
-      title: 'TikTok Business lança API para automação de campanhas',
-      summary: 'Nova API permite integração direta com ferramentas de marketing automation, facilitando a criação e otimização de campanhas em larga escala na plataforma.',
-      category: 'marketing-digital',
-      source: 'Social Media Today',
-      publishedAt: new Date(Date.now() - 10 * 60 * 60 * 1000).toISOString(),
-      url: '#',
-      relevanceScore: 85
-    },
-    {
-      id: '6',
-      title: 'Blockchain revoluciona programatic advertising',
-      summary: 'Implementação de tecnologia blockchain em programmatic advertising garante maior transparência e reduz fraudes publicitárias em até 78%.',
-      category: 'tecnologia',
-      source: 'AdTech Weekly',
-      publishedAt: new Date(Date.now() - 12 * 60 * 60 * 1000).toISOString(),
-      url: '#',
-      relevanceScore: 82
+  // Carregar API key do localStorage
+  useEffect(() => {
+    const savedApiKey = localStorage.getItem('newsapi_key');
+    if (savedApiKey) {
+      setApiKey(savedApiKey);
+    } else {
+      setShowApiInput(true);
     }
-  ];
+  }, []);
 
-  // Query para buscar notícias (simulando uma API)
-  const { data: newsData, isLoading, refetch } = useQuery({
-    queryKey: ['news', selectedCategory],
-    queryFn: async () => {
-      // Simula delay de API
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      return mockNewsData;
-    },
-    refetchInterval: autoRefresh ? refreshInterval : false,
+  // Função para buscar notícias reais
+  const fetchRealNews = async (): Promise<NewsItem[]> => {
+    if (!apiKey) {
+      throw new Error('API key é necessária');
+    }
+
+    // Palavras-chave para cada categoria
+    const keywords = {
+      'marketing-digital': 'digital marketing OR social media marketing OR SEO OR SEM OR content marketing',
+      'tecnologia': 'technology OR tech OR software OR innovation OR startup',
+      'inteligencia-artificial': 'artificial intelligence OR AI OR machine learning OR ML OR deep learning',
+      'inovacao': 'innovation OR digital transformation OR fintech OR blockchain'
+    };
+
+    const allKeywords = Object.values(keywords).join(' OR ');
+    
+    try {
+      const response = await fetch(
+        `https://newsapi.org/v2/everything?q=${encodeURIComponent(allKeywords)}&language=en&sortBy=publishedAt&pageSize=${maxItems}&apiKey=${apiKey}`
+      );
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error('Chave de API inválida');
+        }
+        throw new Error('Erro ao buscar notícias');
+      }
+
+      const data = await response.json();
+      
+      return data.articles.map((article: any, index: number) => {
+        // Determinar categoria baseada no título e descrição
+        const content = `${article.title} ${article.description}`.toLowerCase();
+        let category: 'marketing-digital' | 'tecnologia' | 'inteligencia-artificial' | 'inovacao' = 'tecnologia';
+        
+        if (content.includes('marketing') || content.includes('social media') || content.includes('seo')) {
+          category = 'marketing-digital';
+        } else if (content.includes('ai') || content.includes('artificial intelligence') || content.includes('machine learning')) {
+          category = 'inteligencia-artificial';
+        } else if (content.includes('innovation') || content.includes('blockchain') || content.includes('fintech')) {
+          category = 'inovacao';
+        }
+
+        return {
+          id: `real-${index}`,
+          title: article.title,
+          summary: article.description || 'Sem descrição disponível',
+          category,
+          source: article.source.name,
+          publishedAt: article.publishedAt,
+          url: article.url,
+          imageUrl: article.urlToImage,
+          relevanceScore: Math.floor(Math.random() * 20) + 80 // Score simulado
+        };
+      });
+    } catch (error) {
+      console.error('Erro ao buscar notícias:', error);
+      throw error;
+    }
+  };
+
+  // Query para buscar notícias reais
+  const { data: newsData, isLoading, error, refetch } = useQuery({
+    queryKey: ['real-news', selectedCategory, apiKey],
+    queryFn: fetchRealNews,
+    enabled: !!apiKey,
+    refetchInterval: autoRefresh && apiKey ? refreshInterval : false,
+    retry: false
   });
 
   // Filtrar notícias por categoria
@@ -140,12 +146,76 @@ const NewsSystem: React.FC<NewsSystemProps> = ({
 
   // Função para atualização manual
   const handleRefresh = () => {
+    if (!apiKey) {
+      toast({
+        title: "API Key necessária",
+        description: "Por favor, insira sua chave de API do News API para buscar notícias reais.",
+        variant: "destructive",
+      });
+      setShowApiInput(true);
+      return;
+    }
     refetch();
     setLastUpdate(new Date());
   };
 
+  // Função para salvar API key
+  const handleSaveApiKey = () => {
+    if (!apiKey.trim()) {
+      toast({
+        title: "API Key inválida",
+        description: "Por favor, insira uma chave de API válida.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    localStorage.setItem('newsapi_key', apiKey);
+    setShowApiInput(false);
+    toast({
+      title: "API Key salva",
+      description: "Sua chave foi salva e as notícias serão carregadas automaticamente.",
+    });
+  };
+
+  // Função para abrir link em nova aba
+  const handleReadMore = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="w-full">
+      {/* API Key Input */}
+      {showApiInput && (
+        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="flex items-center gap-2 mb-3">
+            <Key className="w-5 h-5 text-blue-600" />
+            <h3 className="font-semibold text-blue-900">Configure sua API Key do News API</h3>
+          </div>
+          <p className="text-sm text-blue-700 mb-3">
+            Para buscar notícias reais, você precisa de uma chave gratuita do NewsAPI.org. 
+            <a href="https://newsapi.org/register" target="_blank" rel="noopener noreferrer" className="underline ml-1">
+              Clique aqui para obter sua chave gratuita
+            </a>
+          </p>
+          <div className="flex gap-2">
+            <Input
+              type="password"
+              placeholder="Cole sua API key aqui..."
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+              className="flex-1"
+            />
+            <Button onClick={handleSaveApiKey}>Salvar</Button>
+            {apiKey && (
+              <Button variant="outline" onClick={() => setShowApiInput(false)}>
+                Cancelar
+              </Button>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Header da seção */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
         <div>
@@ -162,6 +232,15 @@ const NewsSystem: React.FC<NewsSystemProps> = ({
           <Button 
             variant="outline" 
             size="sm" 
+            onClick={() => setShowApiInput(true)}
+            className="flex items-center gap-2"
+          >
+            <Key className="w-4 h-4" />
+            API Key
+          </Button>
+          <Button 
+            variant="outline" 
+            size="sm" 
             onClick={handleRefresh}
             disabled={isLoading}
             className="flex items-center gap-2"
@@ -171,6 +250,16 @@ const NewsSystem: React.FC<NewsSystemProps> = ({
           </Button>
         </div>
       </div>
+
+      {/* Erro de API */}
+      {error && (
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-5 h-5 text-red-600" />
+            <span className="text-red-900 font-medium">Erro ao carregar notícias: {error.message}</span>
+          </div>
+        </div>
+      )}
 
       {/* Filtros por categoria */}
       <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="mb-6">
@@ -229,7 +318,12 @@ const NewsSystem: React.FC<NewsSystemProps> = ({
                 <p className="text-gray-600 text-sm line-clamp-3 mb-4">
                   {item.summary}
                 </p>
-                <Button variant="outline" size="sm" className="w-full group-hover:bg-blue-50">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full group-hover:bg-blue-50"
+                  onClick={() => handleReadMore(item.url)}
+                >
                   <ExternalLink className="w-4 h-4 mr-2" />
                   Ler Matéria Completa
                 </Button>
@@ -247,8 +341,8 @@ const NewsSystem: React.FC<NewsSystemProps> = ({
             <div className="text-sm text-gray-600">Notícias Hoje</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-green-600">98.5%</div>
-            <div className="text-sm text-gray-600">Precisão IA</div>
+            <div className="text-2xl font-bold text-green-600">Real-time</div>
+            <div className="text-sm text-gray-600">Atualizações</div>
           </div>
           <div>
             <div className="text-2xl font-bold text-purple-600">&lt; 2min</div>

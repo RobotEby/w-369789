@@ -112,56 +112,27 @@ const Features = () => {
     {
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       title: "E-commerce Fashion",
-      challenge: "• Desafio: aumentar as vendas durante promoções sazonais, mantendo ROAS acima de 5×.",
-      strategy: "• Estratégia: campanhas multicanal (Google Shopping, Facebook/Instagram Ads e influenciadores), retargeting dinâmico e otimização de criativos via testes A/B.",
-      results: [
-        "↑ 150% nas conversões durante o período de Black Friday",
-        "↓ 28% no custo por aquisição (CPA)"
-      ]
+      description: "Impulsionou as vendas em 150% na Black Friday com campanhas multicanal otimizadas, reduzindo o CPA em 28%."
     },
     {
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       title: "B2B SaaS Corporativo",
-      challenge: "• Desafio: gerar leads de alto valor para software de gestão ERP, reduzindo CAC e aumentando LTV.",
-      strategy: "• Estratégia: funis de nutrição via e-mail marketing, scoring preditivo de leads com base em comportamento, webinars e LinkedIn Ads segmentado.",
-      results: [
-        "1.200 leads qualificados em 90 dias",
-        "↓ 35% no custo de aquisição de clientes (CAC)",
-        "LTV/CAC de 8×, com +42% na conversão de trials para contratos"
-      ]
+      description: "Gerou 1.200 leads qualificados em 90 dias com funis de nutrição e LinkedIn Ads segmentado, diminuindo o CAC em 35%."
     },
     {
       image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
       title: "Fintech Digital",
-      challenge: "• Desafio: lançar um cartão digital para jovens profissionais e atingir 10.000 usuários no primeiro semestre.",
-      strategy: "• Estratégia: anúncios em mídias sociais + parcerias com influenciadores de finanças, pop-ups em portais financeiros e gamificação via indicações ('indique e ganhe cashback').",
-      results: [
-        "12.500 cadastros em 4 meses",
-        "Taxa de indicação de 28%, com 3.500 novos usuários via referral",
-        "↓ 22% no CPA e ↑ 65% no engajamento do app móvel"
-      ]
+      description: "Conquistou 12.500 cadastros em 4 meses com social ads e programa de referrals, elevando o engajamento em 65% e reduzindo o CPA em 22%."
     },
     {
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
       title: "Educação Online",
-      challenge: "• Desafio: ampliar as matrículas em cursos EAD durante o período de baixa demanda, mantendo custo por inscrição abaixo de R$ 25.",
-      strategy: "• Estratégia: campanha omnichannel com Search Ads por termos de interesse, vídeos no YouTube com depoimentos de alunos, e-mail drip segmentado por estágio do funil e remarketing dinâmico para visitantes de páginas de curso.",
-      results: [
-        "↑ 85% nas inscrições em 60 dias",
-        "↓ 30% no custo por lead (CPL)",
-        "Taxa de conversão de visitantes a inscritos de 12%, acima da meta de 8%"
-      ]
+      description: "Aumentou as matrículas em 85% em 60 dias com Search Ads, YouTube Stories e e-mail drip, reduzindo o CPL em 30%."
     },
     {
       image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       title: "Turismo & Viagens",
-      challenge: "• Desafio: aumentar as reservas de pacotes de alta temporada em 40% sem elevar o orçamento de mídia.",
-      strategy: "• Estratégia: integração de social ads (Facebook, Instagram, TikTok), Display Remarketing personalizado e parceria com influenciadores de viagem para user-generated content, além de e-mail marketing segmentado por comportamento de navegação.",
-      results: [
-        "↑ 52% nas reservas dos destinos promovidos",
-        "↓ 28% no CPA",
-        "↑ 110% no tráfego orgânico gerado pelo conteúdo dos influenciadores"
-      ]
+      description: "Elevou reservas em 52% com social ads, display remarketing e influenciadores, cortando o CPA em 28% e gerando +110% de tráfego orgânico."
     }
   ];
   
@@ -348,18 +319,7 @@ const Features = () => {
                           </div>
                           <div className="p-6">
                             <h4 className="font-bold text-lg mb-3">{study.title}</h4>
-                            <div className="space-y-3 text-sm text-gray-700">
-                              <p className="text-gray-600">{study.challenge}</p>
-                              <p className="text-gray-600">{study.strategy}</p>
-                              <div>
-                                <p className="font-medium text-gray-800 mb-2">• Resultados:</p>
-                                <ul className="space-y-1 ml-4">
-                                  {study.results.map((result, resultIndex) => (
-                                    <li key={resultIndex} className="text-gray-600">- {result}</li>
-                                  ))}
-                                </ul>
-                              </div>
-                            </div>
+                            <p className="text-gray-600 text-sm leading-relaxed">{study.description}</p>
                           </div>
                         </CardContent>
                       </Card>

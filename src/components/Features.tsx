@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake, RefreshCcw, MessageSquare } from "lucide-react";
 import { cn } from '@/lib/utils';
@@ -313,30 +314,47 @@ const Features = () => {
               </p>
             </div>
             
-            <div className="rounded-xl overflow-hidden bg-white p-4 feature-item">
+            <div className="rounded-xl overflow-hidden bg-white p-6 feature-item shadow-sm border border-gray-100">
               <Carousel className="w-full max-w-7xl mx-auto">
                 <CarouselContent className="flex">
-                  {sensorCaseStudies.map((study, index) => <CarouselItem key={index} className="md:basis-1/3 flex-shrink-0">
-                      <Card className="border border-gray-100 shadow-md">
-                        <CardContent className="p-0">
-                          <div className="w-full h-full">
-                            <img src={study.image} alt={study.title} className="w-full h-auto object-contain" />
+                  {sensorCaseStudies.map((study, index) => 
+                    <CarouselItem key={index} className="md:basis-1/3 flex-shrink-0 pl-4">
+                      <Card className="border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
+                        <CardContent className="p-0 h-full flex flex-col">
+                          <div className="w-full h-48 overflow-hidden">
+                            <AspectRatio ratio={16/9} className="bg-gray-100">
+                              <img 
+                                src={study.image} 
+                                alt={study.title} 
+                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
+                              />
+                            </AspectRatio>
                           </div>
-                          <div className="p-4">
-                            <h4 className="font-semibold text-lg">{study.title}</h4>
-                            <p className="text-sm text-gray-600 mt-2">{study.description}</p>
+                          <div className="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                              <h4 className="font-semibold text-lg text-gray-900 mb-3 leading-tight">{study.title}</h4>
+                              <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">{study.description}</p>
+                            </div>
+                            <div className="mt-4 pt-4 border-t border-gray-100">
+                              <div className="text-xs text-gray-500 font-medium uppercase tracking-wide">
+                                Case de Sucesso
+                              </div>
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
-                    </CarouselItem>)}
+                    </CarouselItem>
+                  )}
                 </CarouselContent>
-                <div className="flex justify-center mt-6 gap-2">
-                  <CarouselPrevious className="relative static left-auto translate-y-0 hover:bg-gray-100" />
-                  <CarouselNext className="relative static right-auto translate-y-0 hover:bg-gray-100" />
+                <div className="flex justify-center mt-8 gap-3">
+                  <CarouselPrevious className="relative static left-auto translate-y-0 hover:bg-gray-100 border-gray-300" />
+                  <CarouselNext className="relative static right-auto translate-y-0 hover:bg-gray-100 border-gray-300" />
                 </div>
               </Carousel>
-              <div className="text-center mt-6 text-sm text-gray-600">
-                <p className="font-medium">Estes exemplos mostram apenas algumas formas de nossas estratégias potencializarem performance e conversões</p>
+              <div className="text-center mt-8">
+                <p className="text-sm text-gray-600 font-medium">
+                  Estes exemplos mostram apenas algumas formas de nossas estratégias potencializarem performance e conversões
+                </p>
               </div>
             </div>
           </div>

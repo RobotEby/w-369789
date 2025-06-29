@@ -108,45 +108,70 @@ const Features = () => {
     };
   }, []);
 
-  const sensorCaseStudies = [{
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    title: "E-commerce Fashion",
-    description: "Campanhas multi-canal com segmentação avançada, retargeting dinâmico e otimização de conversão para aumentar vendas online."
-  }, {
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    title: "B2B SaaS Corporativo",
-    description: "Estratégias de captação de leads qualificados com funis de nutrição, scoring de leads e automação de vendas para decisores."
-  }, {
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80",
-    title: "Serviços Profissionais",
-    description: "Campanhas direcionadas com análise comportamental, jornadas personalizadas e automação que converte prospects em clientes."
-  }];
-  const stepFlowItems = [{
-    icon: <Microchip className="h-10 w-10 text-gray-700" />,
-    title: "Estratégias Proprietárias",
-    description: "Metodologias exclusivas desenvolvidas internamente"
-  }, {
-    icon: <Factory className="h-10 w-10 text-gray-700" />,
-    title: "Ferramentas Premium Validadas",
-    description: "Plataformas e tecnologias cuidadosamente selecionadas"
-  }, {
-    icon: <Handshake className="h-10 w-10 text-gray-700" />,
-    title: "Parceiros de Implementação",
-    description: "Rede de especialistas para execução e qualidade"
-  }];
-  const sprintPhases = [{
-    name: "Planejamento",
-    icon: <CheckCircle className="h-4 w-4" />
-  }, {
-    name: "Desenvolvimento",
-    icon: <Code className="h-4 w-4" />
-  }, {
-    name: "Testes",
-    icon: <Box className="h-4 w-4" />
-  }, {
-    name: "Otimização",
-    icon: <RefreshCcw className="h-4 w-4" />
-  }];
+  const sensorCaseStudies = [
+    {
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      title: "E-commerce Fashion",
+      description: "Campanhas multi-canal com segmentação avançada, retargeting dinâmico e otimização de conversão para aumentar vendas online."
+    }, 
+    {
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      title: "B2B SaaS Corporativo",
+      description: "Estratégias de captação de leads qualificados com funis de nutrição, scoring de leads e automação de vendas para decisores."
+    }, 
+    {
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80",
+      title: "Serviços Profissionais",
+      description: "Campanhas direcionadas com análise comportamental, jornadas personalizadas e automação que converte prospects em clientes."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+      title: "Fintech Digital",
+      description: "Campanhas de aquisição para plataformas financeiras com segmentação comportamental, scoring preditivo e automação de remarketing, reduzindo CPL em –35%."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
+      title: "Educação Online",
+      description: "Estratégias omnichannel para captação de alunos EAD: anúncios sociais, search ads otimizados e e-mail drip com taxa de abertura +50%."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      title: "Turismo & Viagens",
+      description: "Promoções multicanal integrando display, social e programática, gerando +42% em reservas e reduzindo CPA em –28% durante alta temporada."
+    }
+  ];
+  
+  const stepFlowItems = [
+    {
+      icon: <Microchip className="h-10 w-10 text-gray-700" />,
+      title: "Estratégias Proprietárias",
+      description: "Metodologias exclusivas desenvolvidas internamente"
+    }, {
+      icon: <Factory className="h-10 w-10 text-gray-700" />,
+      title: "Ferramentas Premium Validadas",
+      description: "Plataformas e tecnologias cuidadosamente selecionadas"
+    }, {
+      icon: <Handshake className="h-10 w-10 text-gray-700" />,
+      title: "Parceiros de Implementação",
+      description: "Rede de especialistas para execução e qualidade"
+    }
+  ];
+  
+  const sprintPhases = [
+    {
+      name: "Planejamento",
+      icon: <CheckCircle className="h-4 w-4" />
+    }, {
+      name: "Desenvolvimento",
+      icon: <Code className="h-4 w-4" />
+    }, {
+      name: "Testes",
+      icon: <Box className="h-4 w-4" />
+    }, {
+      name: "Otimização",
+      icon: <RefreshCcw className="h-4 w-4" />
+    }
+  ];
 
   return <>
       <section id="features" className="relative bg-white overflow-hidden py-10 md:py-[50px] w-full">

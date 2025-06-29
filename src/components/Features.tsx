@@ -112,32 +112,56 @@ const Features = () => {
     {
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       title: "E-commerce Fashion",
-      description: "Campanhas multi-canal com segmentação avançada, retargeting dinâmico e otimização de conversão para aumentar vendas online."
-    }, 
+      challenge: "• Desafio: aumentar as vendas durante promoções sazonais, mantendo ROAS acima de 5×.",
+      strategy: "• Estratégia: campanhas multicanal (Google Shopping, Facebook/Instagram Ads e influenciadores), retargeting dinâmico e otimização de criativos via testes A/B.",
+      results: [
+        "↑ 150% nas conversões durante o período de Black Friday",
+        "↓ 28% no custo por aquisição (CPA)"
+      ]
+    },
     {
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       title: "B2B SaaS Corporativo",
-      description: "Estratégias de captação de leads qualificados com funis de nutrição, scoring de leads e automação de vendas para decisores."
-    }, 
-    {
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80",
-      title: "Serviços Profissionais",
-      description: "Campanhas direcionadas com análise comportamental, jornadas personalizadas e automação que converte prospects em clientes."
+      challenge: "• Desafio: gerar leads de alto valor para software de gestão ERP, reduzindo CAC e aumentando LTV.",
+      strategy: "• Estratégia: funis de nutrição via e-mail marketing, scoring preditivo de leads com base em comportamento, webinars e LinkedIn Ads segmentado.",
+      results: [
+        "1.200 leads qualificados em 90 dias",
+        "↓ 35% no custo de aquisição de clientes (CAC)",
+        "LTV/CAC de 8×, com +42% na conversão de trials para contratos"
+      ]
     },
     {
       image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
       title: "Fintech Digital",
-      description: "Campanhas de aquisição para plataformas financeiras com segmentação comportamental, scoring preditivo e automação de remarketing, reduzindo CPL em –35%."
+      challenge: "• Desafio: lançar um cartão digital para jovens profissionais e atingir 10.000 usuários no primeiro semestre.",
+      strategy: "• Estratégia: anúncios em mídias sociais + parcerias com influenciadores de finanças, pop-ups em portais financeiros e gamificação via indicações ('indique e ganhe cashback').",
+      results: [
+        "12.500 cadastros em 4 meses",
+        "Taxa de indicação de 28%, com 3.500 novos usuários via referral",
+        "↓ 22% no CPA e ↑ 65% no engajamento do app móvel"
+      ]
     },
     {
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
       title: "Educação Online",
-      description: "Estratégias omnichannel para captação de alunos EAD: anúncios sociais, search ads otimizados e e-mail drip com taxa de abertura +50%."
+      challenge: "• Desafio: ampliar as matrículas em cursos EAD durante o período de baixa demanda, mantendo custo por inscrição abaixo de R$ 25.",
+      strategy: "• Estratégia: campanha omnichannel com Search Ads por termos de interesse, vídeos no YouTube com depoimentos de alunos, e-mail drip segmentado por estágio do funil e remarketing dinâmico para visitantes de páginas de curso.",
+      results: [
+        "↑ 85% nas inscrições em 60 dias",
+        "↓ 30% no custo por lead (CPL)",
+        "Taxa de conversão de visitantes a inscritos de 12%, acima da meta de 8%"
+      ]
     },
     {
       image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       title: "Turismo & Viagens",
-      description: "Promoções multicanal integrando display, social e programática, gerando +42% em reservas e reduzindo CPA em –28% durante alta temporada."
+      challenge: "• Desafio: aumentar as reservas de pacotes de alta temporada em 40% sem elevar o orçamento de mídia.",
+      strategy: "• Estratégia: integração de social ads (Facebook, Instagram, TikTok), Display Remarketing personalizado e parceria com influenciadores de viagem para user-generated content, além de e-mail marketing segmentado por comportamento de navegação.",
+      results: [
+        "↑ 52% nas reservas dos destinos promovidos",
+        "↓ 28% no CPA",
+        "↑ 110% no tráfego orgânico gerado pelo conteúdo dos influenciadores"
+      ]
     }
   ];
   
@@ -319,12 +343,23 @@ const Features = () => {
                   {sensorCaseStudies.map((study, index) => <CarouselItem key={index} className="md:basis-1/3 flex-shrink-0">
                       <Card className="border border-gray-100 shadow-md">
                         <CardContent className="p-0">
-                          <div className="w-full h-full">
-                            <img src={study.image} alt={study.title} className="w-full h-auto object-contain" />
+                          <div className="w-full h-48">
+                            <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
                           </div>
-                          <div className="p-4">
-                            <h4 className="font-semibold text-lg">{study.title}</h4>
-                            <p className="text-sm text-gray-600 mt-2">{study.description}</p>
+                          <div className="p-6">
+                            <h4 className="font-bold text-lg mb-3">{study.title}</h4>
+                            <div className="space-y-3 text-sm text-gray-700">
+                              <p className="text-gray-600">{study.challenge}</p>
+                              <p className="text-gray-600">{study.strategy}</p>
+                              <div>
+                                <p className="font-medium text-gray-800 mb-2">• Resultados:</p>
+                                <ul className="space-y-1 ml-4">
+                                  {study.results.map((result, resultIndex) => (
+                                    <li key={resultIndex} className="text-gray-600">- {result}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
                           </div>
                         </CardContent>
                       </Card>

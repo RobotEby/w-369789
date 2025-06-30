@@ -82,13 +82,13 @@ const ContactInfo = () => {
   };
 
   return (
-    <section id="contact-info" className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-24">
+    <section id="contact-info" className="bg-white py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <div className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
+          <div className="inline-block mb-4 px-4 py-2 bg-wrlds-teal/10 text-wrlds-dark rounded-full text-sm font-semibold">
             Entre em Contato
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-wrlds-dark">
             Fale com Nossa Equipe CBAAP
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
@@ -99,15 +99,15 @@ const ContactInfo = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Formulário de Contato - Maior */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                <MessageSquare className="h-6 w-6 mr-3 text-blue-600" />
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+              <h3 className="text-2xl font-bold text-wrlds-dark mb-6 flex items-center">
+                <MessageSquare className="h-6 w-6 mr-3 text-wrlds-teal" />
                 Envie sua Mensagem
               </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-700 text-sm font-semibold mb-2">
+                    <label htmlFor="name" className="block text-wrlds-dark text-sm font-semibold mb-2">
                       Nome Completo *
                     </label>
                     <div className="relative">
@@ -119,14 +119,14 @@ const ContactInfo = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Seu nome completo"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 transition-all"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wrlds-teal focus:border-transparent text-wrlds-dark transition-all"
                         required
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 text-sm font-semibold mb-2">
+                    <label htmlFor="email" className="block text-wrlds-dark text-sm font-semibold mb-2">
                       E-mail *
                     </label>
                     <div className="relative">
@@ -138,7 +138,7 @@ const ContactInfo = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="seu.email@exemplo.com"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 transition-all"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wrlds-teal focus:border-transparent text-wrlds-dark transition-all"
                         required
                       />
                     </div>
@@ -147,7 +147,7 @@ const ContactInfo = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-gray-700 text-sm font-semibold mb-2">
+                    <label htmlFor="phone" className="block text-wrlds-dark text-sm font-semibold mb-2">
                       Telefone
                     </label>
                     <div className="relative">
@@ -159,13 +159,13 @@ const ContactInfo = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="(11) 99999-9999"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 transition-all"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wrlds-teal focus:border-transparent text-wrlds-dark transition-all"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-gray-700 text-sm font-semibold mb-2">
+                    <label htmlFor="company" className="block text-wrlds-dark text-sm font-semibold mb-2">
                       Empresa
                     </label>
                     <div className="relative">
@@ -177,14 +177,14 @@ const ContactInfo = () => {
                         value={formData.company}
                         onChange={handleInputChange}
                         placeholder="Nome da sua empresa"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 transition-all"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wrlds-teal focus:border-transparent text-wrlds-dark transition-all"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-gray-700 text-sm font-semibold mb-2">
+                  <label htmlFor="subject" className="block text-wrlds-dark text-sm font-semibold mb-2">
                     Assunto
                   </label>
                   <select
@@ -192,7 +192,7 @@ const ContactInfo = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wrlds-teal focus:border-transparent text-wrlds-dark transition-all"
                   >
                     <option value="">Selecione um assunto</option>
                     <option value="Orçamento">Solicitar Orçamento</option>
@@ -205,7 +205,7 @@ const ContactInfo = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 text-sm font-semibold mb-2">
+                  <label htmlFor="message" className="block text-wrlds-dark text-sm font-semibold mb-2">
                     Mensagem *
                   </label>
                   <textarea
@@ -215,7 +215,7 @@ const ContactInfo = () => {
                     onChange={handleInputChange}
                     placeholder="Conte-nos sobre seu projeto, objetivos e como podemos ajudar..."
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 resize-none transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wrlds-teal focus:border-transparent text-wrlds-dark resize-none transition-all"
                     required
                   />
                 </div>
@@ -223,7 +223,7 @@ const ContactInfo = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-4 px-8 rounded-lg transition-all flex items-center justify-center disabled:opacity-70 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="w-full bg-wrlds-dark hover:bg-wrlds-dark/80 text-white py-4 px-8 rounded-lg transition-all flex items-center justify-center disabled:opacity-70 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   {isSubmitting ? "Enviando..." : (
                     <>
@@ -241,15 +241,15 @@ const ContactInfo = () => {
             {/* Contato por Email */}
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                <div className="w-12 h-12 bg-wrlds-teal rounded-xl flex items-center justify-center text-white flex-shrink-0">
                   <Mail className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">E-mail</h3>
+                  <h3 className="text-xl font-bold text-wrlds-dark mb-2">E-mail</h3>
                   <p className="text-gray-600 mb-3">Para consultas e orçamentos:</p>
                   <a 
                     href="mailto:cbaap.agencia@gmail.com" 
-                    className="text-blue-600 hover:text-blue-800 font-semibold transition-colors"
+                    className="text-wrlds-teal hover:text-wrlds-dark font-semibold transition-colors"
                   >
                     cbaap.agencia@gmail.com
                   </a>
@@ -260,11 +260,11 @@ const ContactInfo = () => {
             {/* Localização */}
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                <div className="w-12 h-12 bg-wrlds-accent rounded-xl flex items-center justify-center text-white flex-shrink-0">
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Localização</h3>
+                  <h3 className="text-xl font-bold text-wrlds-dark mb-2">Localização</h3>
                   <p className="text-gray-600">
                     Belo Horizonte - MG<br />
                     Minas Gerais, Brasil
@@ -275,7 +275,7 @@ const ContactInfo = () => {
 
             {/* Redes Sociais */}
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Redes Sociais</h3>
+              <h3 className="text-xl font-bold text-wrlds-dark mb-4">Redes Sociais</h3>
               <p className="text-gray-600 mb-4">Conecte-se conosco:</p>
               <div className="flex space-x-4">
                 <a 

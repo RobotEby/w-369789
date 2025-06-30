@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, User, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Send, User, MessageSquare, Phone, Building, Instagram, Linkedin, Facebook } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from 'emailjs-com';
 
@@ -8,12 +8,15 @@ const ContactInfo = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
+    company: '',
+    subject: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -27,7 +30,7 @@ const ContactInfo = () => {
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Erro",
-        description: "Por favor, preencha todos os campos.",
+        description: "Por favor, preencha os campos obrigatórios (nome, email e mensagem).",
         variant: "destructive"
       });
       return;
@@ -43,6 +46,9 @@ const ContactInfo = () => {
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        subject: formData.subject,
         message: formData.message,
         to_name: 'Equipe CBAAP',
         reply_to: formData.email
@@ -61,7 +67,7 @@ const ContactInfo = () => {
         variant: "default"
       });
       
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '' });
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
       
@@ -76,110 +82,174 @@ const ContactInfo = () => {
   };
 
   return (
-    <section id="contact-info" className="bg-gradient-to-b from-white to-black text-white relative py-[15px] md:py-[25px]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 md:mb-16">
-          <div className="inline-block mb-3 px-3 py-1 bg-white text-black rounded-full text-sm font-medium">
+    <section id="contact-info" className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <div className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
             Entre em Contato
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             Fale com Nossa Equipe CBAAP
           </h2>
-          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
             Tem dúvidas sobre nossas estratégias de marketing digital? Entre em contato com a CBAAP e vamos discutir como podemos impulsionar seus resultados e transformar seu negócio.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Formulário de Contato */}
-          <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-700">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">Envie sua Mensagem</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-gray-700 text-sm font-medium mb-2">
-                  Nome Completo
-                </label>
-                <div className="relative">
-                  <User className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Seu nome completo"
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-                    required
-                  />
-                </div>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Formulário de Contato - Maior */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <MessageSquare className="h-6 w-6 mr-3 text-blue-600" />
+                Envie sua Mensagem
+              </h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-gray-700 text-sm font-semibold mb-2">
+                      Nome Completo *
+                    </label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="Seu nome completo"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 transition-all"
+                        required
+                      />
+                    </div>
+                  </div>
 
-              <div>
-                <label htmlFor="email" className="block text-gray-700 text-sm font-medium mb-2">
-                  E-mail
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="seu.email@exemplo.com"
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-                    required
-                  />
+                  <div>
+                    <label htmlFor="email" className="block text-gray-700 text-sm font-semibold mb-2">
+                      E-mail *
+                    </label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="seu.email@exemplo.com"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 transition-all"
+                        required
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="message" className="block text-gray-700 text-sm font-medium mb-2">
-                  Mensagem
-                </label>
-                <div className="relative">
-                  <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-gray-700 text-sm font-semibold mb-2">
+                      Telefone
+                    </label>
+                    <div className="relative">
+                      <Phone className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="(11) 99999-9999"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="company" className="block text-gray-700 text-sm font-semibold mb-2">
+                      Empresa
+                    </label>
+                    <div className="relative">
+                      <Building className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                      <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        placeholder="Nome da sua empresa"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 transition-all"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="subject" className="block text-gray-700 text-sm font-semibold mb-2">
+                    Assunto
+                  </label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 transition-all"
+                  >
+                    <option value="">Selecione um assunto</option>
+                    <option value="Orçamento">Solicitar Orçamento</option>
+                    <option value="Consultoria">Consultoria em Marketing Digital</option>
+                    <option value="Tráfego Pago">Campanhas de Tráfego Pago</option>
+                    <option value="SEO">Otimização para Buscadores (SEO)</option>
+                    <option value="Social Media">Gestão de Redes Sociais</option>
+                    <option value="Outros">Outros Assuntos</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-gray-700 text-sm font-semibold mb-2">
+                    Mensagem *
+                  </label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="Conte-nos sobre seu projeto ou dúvida..."
-                    rows={4}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 resize-none"
+                    placeholder="Conte-nos sobre seu projeto, objetivos e como podemos ajudar..."
+                    rows={6}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 resize-none transition-all"
                     required
                   />
                 </div>
-              </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-md transition-colors flex items-center justify-center disabled:opacity-70"
-              >
-                {isSubmitting ? "Enviando..." : (
-                  <>
-                    Enviar Mensagem
-                    <Send className="ml-2 h-4 w-4" />
-                  </>
-                )}
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-4 px-8 rounded-lg transition-all flex items-center justify-center disabled:opacity-70 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  {isSubmitting ? "Enviando..." : (
+                    <>
+                      Enviar Mensagem
+                      <Send className="ml-2 h-5 w-5" />
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
           </div>
 
           {/* Informações de Contato */}
           <div className="space-y-6">
-            <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-700">
+            {/* Contato por Email */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">
                   <Mail className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">E-mail</h3>
-                  <p className="text-gray-600 mb-2">Para consultas e orçamentos:</p>
+                  <p className="text-gray-600 mb-3">Para consultas e orçamentos:</p>
                   <a 
                     href="mailto:cbaap.agencia@gmail.com" 
-                    className="text-blue-600 hover:text-blue-800 font-medium"
+                    className="text-blue-600 hover:text-blue-800 font-semibold transition-colors"
                   >
                     cbaap.agencia@gmail.com
                   </a>
@@ -187,9 +257,10 @@ const ContactInfo = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-700">
+            {/* Localização */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white flex-shrink-0">
+                <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div>
@@ -199,6 +270,41 @@ const ContactInfo = () => {
                     Minas Gerais, Brasil
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* Redes Sociais */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Redes Sociais</h3>
+              <p className="text-gray-600 mb-4">Conecte-se conosco:</p>
+              <div className="flex space-x-4">
+                <a 
+                  href="https://www.instagram.com/cbaap.agencia" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white transition-transform hover:scale-110"
+                  aria-label="Instagram CBAAP"
+                >
+                  <Instagram size={20} />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/company/cbaap/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white transition-transform hover:scale-110"
+                  aria-label="LinkedIn CBAAP"
+                >
+                  <Linkedin size={20} />
+                </a>
+                <a 
+                  href="https://www.facebook.com/cbaap.agencia" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center text-white transition-transform hover:scale-110"
+                  aria-label="Facebook CBAAP"
+                >
+                  <Facebook size={20} />
+                </a>
               </div>
             </div>
           </div>

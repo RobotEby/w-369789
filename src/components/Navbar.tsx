@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -134,6 +133,12 @@ const Navbar = () => {
                           <p className="text-sm text-gray-500">Nossa abordagem para criar estratégias personalizadas</p>
                         </Link>
                       </li>
+                      <li>
+                        <Link to="/metodologia" className="block p-3 space-y-1 rounded-md hover:bg-gray-100" title="Entenda nossa metodologia de marketing digital passo a passo">
+                          <div className="font-medium">Saiba Mais Sobre Nossa Metodologia</div>
+                          <p className="text-sm text-gray-500">Metodologia completa: data-driven, omnichannel e automação</p>
+                        </Link>
+                      </li>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -243,6 +248,12 @@ const Navbar = () => {
                 window.scrollTo(0, 0);
               }}>
                 Processo de Desenvolvimento
+              </Link>
+              <Link to="/metodologia" className={cn("block px-3 py-2 rounded-md", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
+                setIsMenuOpen(false);
+                window.scrollTo(0, 0);
+              }} title="Entenda nossa metodologia de marketing digital passo a passo">
+                Saiba Mais Sobre Nossa Metodologia
               </Link>
             </div>
           </div>

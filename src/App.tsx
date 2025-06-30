@@ -18,7 +18,6 @@ import DevelopmentProcess from "./pages/DevelopmentProcess";
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import BlogPostDetail from "./pages/BlogPostDetail";
-import Metodologia from "./pages/Metodologia";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -39,7 +38,6 @@ const App = () => {
             <Route path="/projects/pet-tracker" element={<PetProject />} />
             <Route path="/tech-details" element={<TechDetails />} />
             <Route path="/development-process" element={<DevelopmentProcess />} />
-            <Route path="/metodologia" element={<Metodologia />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/blog/:slug" element={<BlogPostDetail />} />

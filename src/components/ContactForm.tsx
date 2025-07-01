@@ -134,10 +134,9 @@ const ContactForm = () => {
                     ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
                     : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
                 }`}
-                required
               />
               {fieldErrors.name && (
-                <p className="text-red-500 text-xs mt-1 animate-slide-in">
+                <p className="text-red-500 text-xs mt-1 animate-fade-in">
                   Este campo é obrigatório
                 </p>
               )}
@@ -162,10 +161,9 @@ const ContactForm = () => {
                     ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
                     : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
                 }`}
-                required
               />
               {fieldErrors.email && (
-                <p className="text-red-500 text-xs mt-1 animate-slide-in">
+                <p className="text-red-500 text-xs mt-1 animate-fade-in">
                   Este campo é obrigatório
                 </p>
               )}
@@ -253,10 +251,9 @@ const ContactForm = () => {
                   ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
                   : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
               }`}
-              required
             />
             {fieldErrors.message && (
-              <p className="text-red-500 text-xs mt-1 animate-slide-in">
+              <p className="text-red-500 text-xs mt-1 animate-fade-in">
                 Este campo é obrigatório
               </p>
             )}

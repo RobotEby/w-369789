@@ -1,11 +1,13 @@
 
 import React, { useState } from 'react';
-import { Mail, Send, User, MessageSquare, Phone, Building } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from 'emailjs-com';
+import ContactFormFields from './ContactFormFields';
+import { FormData, FieldErrors, validateForm, hasErrors } from './ContactFormValidation';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
@@ -14,7 +16,7 @@ const ContactForm = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [fieldErrors, setFieldErrors] = useState({
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({
     name: false,
     email: false,
     message: false
@@ -29,7 +31,7 @@ const ContactForm = () => {
     }));
 
     // Remove error state when user starts typing
-    if (fieldErrors[name as keyof typeof fieldErrors]) {
+    if (fieldErrors[name as keyof FieldErrors]) {
       setFieldErrors(prev => ({
         ...prev,
         [name]: false
@@ -37,21 +39,16 @@ const ContactForm = () => {
     }
   };
 
-  const validateForm = () => {
-    const errors = {
-      name: !formData.name.trim(),
-      email: !formData.email.trim(),
-      message: !formData.message.trim()
-    };
-
+  const handleValidation = () => {
+    const errors = validateForm(formData);
     setFieldErrors(errors);
-    return !Object.values(errors).some(error => error);
+    return !hasErrors(errors);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateForm()) {
+    if (!handleValidation()) {
       toast({
         title: "Campos obrigatórios",
         description: "Por favor, preencha pelo menos nome, e-mail e mensagem.",
@@ -114,151 +111,11 @@ const ContactForm = () => {
       </div>
       
       <form onSubmit={handleSubmit} className="p-8 space-y-6">
-        {/* Nome e Email */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <label htmlFor="name" className="block text-sm font-semibold text-gray-700">
-              Nome Completo *
-            </label>
-            <div className="relative">
-              <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Seu nome completo"
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-200 text-gray-900 bg-white focus:outline-none focus:ring-2 ${
-                  fieldErrors.name 
-                    ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
-                    : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
-                }`}
-              />
-              {fieldErrors.name && (
-                <p className="text-red-500 text-xs mt-1 animate-fade-in">
-                  Este campo é obrigatório
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor="email" className="block text-sm font-semibold text-gray-700">
-              E-mail Corporativo *
-            </label>
-            <div className="relative">
-              <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="seu.email@empresa.com"
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-200 text-gray-900 bg-white focus:outline-none focus:ring-2 ${
-                  fieldErrors.email 
-                    ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
-                    : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
-                }`}
-              />
-              {fieldErrors.email && (
-                <p className="text-red-500 text-xs mt-1 animate-fade-in">
-                  Este campo é obrigatório
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* Telefone e Empresa */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <label htmlFor="phone" className="block text-sm font-semibold text-gray-700">
-              Telefone/WhatsApp
-            </label>
-            <div className="relative">
-              <Phone className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                placeholder="(11) 99999-9999"
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
-              />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor="company" className="block text-sm font-semibold text-gray-700">
-              Empresa
-            </label>
-            <div className="relative">
-              <Building className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleInputChange}
-                placeholder="Nome da sua empresa"
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Assunto */}
-        <div className="space-y-2">
-          <label htmlFor="subject" className="block text-sm font-semibold text-gray-700">
-            Assunto
-          </label>
-          <select
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
-          >
-            <option value="">Selecione um assunto</option>
-            <option value="marketing-digital">Marketing Digital</option>
-            <option value="trafego-pago">Tráfego Pago</option>
-            <option value="social-media">Social Media</option>
-            <option value="branding">Branding</option>
-            <option value="consultoria">Consultoria</option>
-            <option value="outros">Outros</option>
-          </select>
-        </div>
-
-        {/* Mensagem */}
-        <div className="space-y-2">
-          <label htmlFor="message" className="block text-sm font-semibold text-gray-700">
-            Mensagem *
-          </label>
-          <div className="relative">
-            <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              placeholder="Conte-nos sobre seu projeto, objetivos e como podemos ajudar..."
-              rows={6}
-              className={`w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-200 text-gray-900 bg-white resize-none focus:outline-none focus:ring-2 ${
-                fieldErrors.message 
-                  ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
-                  : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
-              }`}
-            />
-            {fieldErrors.message && (
-              <p className="text-red-500 text-xs mt-1 animate-fade-in">
-                Este campo é obrigatório
-              </p>
-            )}
-          </div>
-        </div>
+        <ContactFormFields
+          formData={formData}
+          fieldErrors={fieldErrors}
+          handleInputChange={handleInputChange}
+        />
 
         {/* Submit Button */}
         <div className="pt-4">

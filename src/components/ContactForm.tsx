@@ -1,130 +1,79 @@
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Send, Mail, User, MessageSquare } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Send, User, MessageSquare, Phone, Building } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import emailjs from 'emailjs-com';
 
-// Updated schema with honeypot field validation
-const formSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-  honeypot: z.string().max(0, 'Bot detected'), // Honeypot field must be empty
-  timestamp: z.number() // To prevent automated quick submissions
-});
-
-type FormValues = z.infer<typeof formSchema>;
-
-// EmailJS configuration - Updated with correct template ID
-const EMAILJS_SERVICE_ID = "service_i3h66xg";
-const EMAILJS_TEMPLATE_ID = "template_fgq53nh"; // Updated to the correct template ID
-const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
-
 const ContactForm = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formStartTime] = useState<number>(Date.now()); // Track when form was opened
-  
-  const { toast } = useToast();
-  
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      message: '',
-      honeypot: '',
-      timestamp: formStartTime
-    }
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    subject: '',
+    message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const onSubmit = async (data: FormValues) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha pelo menos nome, e-mail e mensagem.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
     try {
-      // Bot checks
-      // 1. Honeypot check - should be caught by zod, but double-check
-      if (data.honeypot) {
-        console.log('Bot detected via honeypot');
-        toast({
-          title: "Error",
-          description: "There was a problem with your submission. Please try again.",
-          variant: "destructive"
-        });
-        return;
-      }
+      const EMAILJS_SERVICE_ID = "service_i3h66xg";
+      const EMAILJS_TEMPLATE_ID = "template_fgq53nh";
+      const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
       
-      // 2. Time-based check - Submission should take at least 3 seconds (too fast is likely a bot)
-      const timeDiff = Date.now() - data.timestamp;
-      if (timeDiff < 3000) {
-        console.log(`Bot detected: Form submitted too quickly (${timeDiff}ms)`);
-        toast({
-          title: "Error",
-          description: "Please take a moment to review your message before submitting.",
-          variant: "destructive"
-        });
-        setIsSubmitting(false);
-        return;
-      }
-      
-      console.log('Form submitted:', data);
-      
-      // Remove honeypot and timestamp fields before sending
-      const { honeypot, timestamp, ...emailData } = data;
-      
-      // Using parameters exactly as expected by EmailJS templates
       const templateParams = {
-        from_name: emailData.name,
-        from_email: emailData.email,
-        message: emailData.message,
-        to_name: 'WRLDS Team', // Adding recipient name parameter
-        reply_to: emailData.email // Keeping reply_to for compatibility
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Equipe CBAAP',
+        reply_to: formData.email
       };
       
-      console.log('Sending email with params:', templateParams);
-      console.log('Using service:', EMAILJS_SERVICE_ID);
-      console.log('Using template:', EMAILJS_TEMPLATE_ID);
-      console.log('Using public key:', EMAILJS_PUBLIC_KEY);
-      
-      // Send email directly without initializing, as it's not needed with the send method that includes the key
-      const response = await emailjs.send(
+      await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams,
-        EMAILJS_PUBLIC_KEY // Re-adding the public key parameter
+        EMAILJS_PUBLIC_KEY
       );
       
-      console.log('Email sent successfully:', response);
-      
       toast({
-        title: "Message sent!",
-        description: "We've received your message and will get back to you soon.",
+        title: "Mensagem enviada com sucesso!",
+        description: "Recebemos sua mensagem e retornaremos em breve.",
         variant: "default"
       });
-
-      form.reset({
-        name: '',
-        email: '',
-        message: '',
-        honeypot: '',
-        timestamp: Date.now()
-      });
-    } catch (error) {
-      console.error('Error sending email:', error);
       
-      // More detailed error logging
-      if (error && typeof error === 'object' && 'text' in error) {
-        console.error('Error details:', (error as any).text);
-      }
+      setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Erro ao enviar mensagem:', error);
       
       toast({
-        title: "Error",
-        description: "There was a problem sending your message. Please try again later.",
+        title: "Erro no envio",
+        description: "Houve um problema ao enviar sua mensagem. Tente novamente mais tarde.",
         variant: "destructive"
       });
     } finally {
@@ -132,107 +81,159 @@ const ContactForm = () => {
     }
   };
 
-  return <section id="contact" className="bg-gradient-to-b from-white to-black text-white relative py-[25px]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-3 px-3 py-1 bg-white text-black rounded-full text-sm font-medium">
-            Get In Touch
+  return (
+    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+      <div className="px-8 py-6 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
+        <h3 className="text-2xl font-bold text-gray-900">Solicite seu Orçamento</h3>
+        <p className="text-gray-600 mt-2">Preencha o formulário e receba uma proposta personalizada</p>
+      </div>
+      
+      <form onSubmit={handleSubmit} className="p-8 space-y-6">
+        {/* Nome e Email */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label htmlFor="name" className="block text-sm font-semibold text-gray-700">
+              Nome Completo *
+            </label>
+            <div className="relative">
+              <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Seu nome completo"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                required
+              />
+            </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
-            Contact Us Today
-          </h2>
-          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-            Have questions about our AI-powered sensor solutions? Reach out to our team and let's discuss how we can help bring your ideas to life.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-700 text-black">
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField control={form.control} name="name" render={({
-                field
-              }) => <FormItem>
-                      <FormLabel className="text-gray-700">Name</FormLabel>
-                      <div className="relative">
-                        <User className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                        <FormControl>
-                          <Input placeholder="Your name" className="pl-10" {...field} />
-                        </FormControl>
-                      </div>
-                      <FormMessage />
-                    </FormItem>} />
-                
-                <FormField control={form.control} name="email" render={({
-                field
-              }) => <FormItem>
-                      <FormLabel className="text-gray-700">Email</FormLabel>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                        <FormControl>
-                          <Input type="email" placeholder="your.email@example.com" className="pl-10" {...field} />
-                        </FormControl>
-                      </div>
-                      <FormMessage />
-                    </FormItem>} />
-                
-                <FormField control={form.control} name="message" render={({
-                field
-              }) => <FormItem>
-                      <FormLabel className="text-gray-700">Message</FormLabel>
-                      <div className="relative">
-                        <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                        <FormControl>
-                          <Textarea placeholder="Tell us about your project or inquiry..." className="min-h-[120px] pl-10 resize-none" {...field} />
-                        </FormControl>
-                      </div>
-                      <FormMessage />
-                    </FormItem>} />
-                
-                {/* Honeypot field - hidden from real users but bots will fill it */}
-                <FormField control={form.control} name="honeypot" render={({
-                field
-              }) => <FormItem className="hidden">
-                      <FormLabel>Leave this empty</FormLabel>
-                      <FormControl>
-                        <Input {...field} tabIndex={-1} />
-                      </FormControl>
-                    </FormItem>} />
-                
-                {/* Hidden timestamp field */}
-                <FormField control={form.control} name="timestamp" render={({
-                field
-              }) => <FormItem className="hidden">
-                      <FormControl>
-                        <Input type="hidden" {...field} />
-                      </FormControl>
-                    </FormItem>} />
-                
-                <button type="submit" disabled={isSubmitting} className="w-full bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-md transition-colors flex items-center justify-center disabled:opacity-70">
-                  {isSubmitting ? "Sending..." : <>
-                      Send Message
-                      <Send className="ml-2 h-4 w-4" />
-                    </>}
-                </button>
-              </form>
-            </Form>
-          </div>
-          
-          <div className="space-y-8">
-            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-700 text-black">
-              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white mb-4">
-                <Mail className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-              <p className="text-gray-600 mb-2">For general inquiries:</p>
-              <a href="mailto:info@wrlds.com" className="text-blue-500 hover:underline">hello@wrlds.com</a>
-              <p className="text-gray-600 mt-2 mb-2">
-            </p>
+
+          <div className="space-y-2">
+            <label htmlFor="email" className="block text-sm font-semibold text-gray-700">
+              E-mail Corporativo *
+            </label>
+            <div className="relative">
+              <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="seu.email@empresa.com"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                required
+              />
             </div>
           </div>
         </div>
-      </div>
-    </section>;
+
+        {/* Telefone e Empresa */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label htmlFor="phone" className="block text-sm font-semibold text-gray-700">
+              Telefone/WhatsApp
+            </label>
+            <div className="relative">
+              <Phone className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder="(11) 99999-9999"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+              />
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="company" className="block text-sm font-semibold text-gray-700">
+              Empresa
+            </label>
+            <div className="relative">
+              <Building className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                id="company"
+                name="company"
+                value={formData.company}
+                onChange={handleInputChange}
+                placeholder="Nome da sua empresa"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Assunto */}
+        <div className="space-y-2">
+          <label htmlFor="subject" className="block text-sm font-semibold text-gray-700">
+            Assunto
+          </label>
+          <select
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleInputChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+          >
+            <option value="">Selecione um assunto</option>
+            <option value="marketing-digital">Marketing Digital</option>
+            <option value="trafego-pago">Tráfego Pago</option>
+            <option value="social-media">Social Media</option>
+            <option value="branding">Branding</option>
+            <option value="consultoria">Consultoria</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+
+        {/* Mensagem */}
+        <div className="space-y-2">
+          <label htmlFor="message" className="block text-sm font-semibold text-gray-700">
+            Mensagem *
+          </label>
+          <div className="relative">
+            <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              placeholder="Conte-nos sobre seu projeto, objetivos e como podemos ajudar..."
+              rows={6}
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white resize-none"
+              required
+            />
+          </div>
+        </div>
+
+        {/* Submit Button */}
+        <div className="pt-4">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-gray-900 hover:bg-gray-800 text-white py-4 px-8 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          >
+            {isSubmitting ? (
+              <div className="flex items-center">
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+                Enviando...
+              </div>
+            ) : (
+              <>
+                Enviar Mensagem
+                <Send className="ml-2 h-5 w-5" />
+              </>
+            )}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 };
 
 export default ContactForm;

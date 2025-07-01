@@ -14,6 +14,11 @@ const ContactForm = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState({
+    name: false,
+    email: false,
+    message: false
+  });
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -22,12 +27,31 @@ const ContactForm = () => {
       ...prev,
       [name]: value
     }));
+
+    // Remove error state when user starts typing
+    if (fieldErrors[name as keyof typeof fieldErrors]) {
+      setFieldErrors(prev => ({
+        ...prev,
+        [name]: false
+      }));
+    }
+  };
+
+  const validateForm = () => {
+    const errors = {
+      name: !formData.name.trim(),
+      email: !formData.email.trim(),
+      message: !formData.message.trim()
+    };
+
+    setFieldErrors(errors);
+    return !Object.values(errors).some(error => error);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!validateForm()) {
       toast({
         title: "Campos obrigatórios",
         description: "Por favor, preencha pelo menos nome, e-mail e mensagem.",
@@ -68,6 +92,7 @@ const ContactForm = () => {
       });
       
       setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '' });
+      setFieldErrors({ name: false, email: false, message: false });
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
       
@@ -104,9 +129,18 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder="Seu nome completo"
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-200 text-gray-900 bg-white focus:outline-none focus:ring-2 ${
+                  fieldErrors.name 
+                    ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
+                    : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
+                }`}
                 required
               />
+              {fieldErrors.name && (
+                <p className="text-red-500 text-xs mt-1 animate-slide-in">
+                  Este campo é obrigatório
+                </p>
+              )}
             </div>
           </div>
 
@@ -123,9 +157,18 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="seu.email@empresa.com"
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-200 text-gray-900 bg-white focus:outline-none focus:ring-2 ${
+                  fieldErrors.email 
+                    ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
+                    : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
+                }`}
                 required
               />
+              {fieldErrors.email && (
+                <p className="text-red-500 text-xs mt-1 animate-slide-in">
+                  Este campo é obrigatório
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -205,9 +248,18 @@ const ContactForm = () => {
               onChange={handleInputChange}
               placeholder="Conte-nos sobre seu projeto, objetivos e como podemos ajudar..."
               rows={6}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white resize-none"
+              className={`w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-200 text-gray-900 bg-white resize-none focus:outline-none focus:ring-2 ${
+                fieldErrors.message 
+                  ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
+                  : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
+              }`}
               required
             />
+            {fieldErrors.message && (
+              <p className="text-red-500 text-xs mt-1 animate-slide-in">
+                Este campo é obrigatório
+              </p>
+            )}
           </div>
         </div>
 

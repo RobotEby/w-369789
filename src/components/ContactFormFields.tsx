@@ -2,7 +2,7 @@
 import React from 'react';
 import { User, Mail, Phone, Building, MessageSquare } from 'lucide-react';
 import FormField from './FormField';
-import { FormData, FieldErrors } from './ContactFormValidation';
+import { FormData, FieldErrors, getErrorMessage } from './ContactFormValidation';
 
 interface ContactFormFieldsProps {
   formData: FormData;
@@ -39,7 +39,7 @@ const ContactFormFields: React.FC<ContactFormFieldsProps> = ({
           icon={User}
           required
           hasError={fieldErrors.name}
-          errorMessage="Este campo é obrigatório"
+          errorMessage={getErrorMessage('name', formData)}
         />
 
         <FormField
@@ -53,7 +53,7 @@ const ContactFormFields: React.FC<ContactFormFieldsProps> = ({
           icon={Mail}
           required
           hasError={fieldErrors.email}
-          errorMessage="Este campo é obrigatório"
+          errorMessage={getErrorMessage('email', formData)}
         />
       </div>
 
@@ -68,6 +68,9 @@ const ContactFormFields: React.FC<ContactFormFieldsProps> = ({
           placeholder="(11) 99999-9999"
           type="tel"
           icon={Phone}
+          required
+          hasError={fieldErrors.phone}
+          errorMessage={getErrorMessage('phone', formData)}
         />
 
         <FormField
@@ -79,6 +82,9 @@ const ContactFormFields: React.FC<ContactFormFieldsProps> = ({
           placeholder="Nome da sua empresa"
           type="text"
           icon={Building}
+          required
+          hasError={fieldErrors.company}
+          errorMessage={getErrorMessage('company', formData)}
         />
       </div>
 
@@ -92,6 +98,9 @@ const ContactFormFields: React.FC<ContactFormFieldsProps> = ({
         placeholder="Selecione um assunto"
         type="select"
         icon={Building}
+        required
+        hasError={fieldErrors.subject}
+        errorMessage={getErrorMessage('subject', formData)}
         options={subjectOptions}
       />
 
@@ -107,7 +116,7 @@ const ContactFormFields: React.FC<ContactFormFieldsProps> = ({
         icon={MessageSquare}
         required
         hasError={fieldErrors.message}
-        errorMessage="Este campo é obrigatório"
+        errorMessage={getErrorMessage('message', formData)}
         rows={6}
       />
     </div>

@@ -19,6 +19,9 @@ const ContactForm = () => {
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({
     name: false,
     email: false,
+    phone: false,
+    company: false,
+    subject: false,
     message: false
   });
   const { toast } = useToast();
@@ -51,7 +54,7 @@ const ContactForm = () => {
     if (!handleValidation()) {
       toast({
         title: "Campos obrigatórios",
-        description: "Por favor, preencha pelo menos nome, e-mail e mensagem.",
+        description: "Por favor, preencha todos os campos corretamente.",
         variant: "destructive"
       });
       return;
@@ -89,7 +92,7 @@ const ContactForm = () => {
       });
       
       setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '' });
-      setFieldErrors({ name: false, email: false, message: false });
+      setFieldErrors({ name: false, email: false, phone: false, company: false, subject: false, message: false });
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
       

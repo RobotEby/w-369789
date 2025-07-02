@@ -33,18 +33,22 @@ const FormField: React.FC<FormFieldProps> = ({
   options,
   rows
 }) => {
-  const baseClasses = `w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-200 text-gray-900 bg-white focus:outline-none focus:ring-2 ${
+  const baseClasses = `w-full pl-10 pr-4 py-3 border-b-2 border-gray-300 bg-transparent transition-all duration-300 text-gray-900 focus:outline-none focus:border-gray-500 ${
     hasError 
-      ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
-      : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
+      ? 'border-red-500 shadow-red-100' 
+      : 'hover:border-gray-400'
   }`;
 
-  const selectClasses = `w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white`;
-
-  const textareaClasses = `w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-200 text-gray-900 bg-white resize-none focus:outline-none focus:ring-2 ${
+  const selectClasses = `w-full px-4 py-3 border-b-2 border-gray-300 bg-transparent transition-all duration-300 text-gray-900 focus:outline-none focus:border-gray-500 ${
     hasError 
-      ? 'border-red-500 ring-2 ring-red-200 animate-pulse' 
-      : 'border-gray-300 focus:ring-gray-500 focus:border-transparent'
+      ? 'border-red-500' 
+      : 'hover:border-gray-400'
+  }`;
+
+  const textareaClasses = `w-full pl-10 pr-4 py-3 border-b-2 border-gray-300 bg-transparent resize-none transition-all duration-300 text-gray-900 focus:outline-none focus:border-gray-500 ${
+    hasError 
+      ? 'border-red-500 shadow-red-100' 
+      : 'hover:border-gray-400'
   }`;
 
   return (
@@ -70,7 +74,9 @@ const FormField: React.FC<FormFieldProps> = ({
         </select>
       ) : (
         <div className="relative">
-          <Icon className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+          <Icon className={`absolute left-3 top-3 h-5 w-5 transition-colors duration-300 ${
+            hasError ? 'text-red-500' : 'text-gray-400'
+          }`} />
           {type === 'textarea' ? (
             <textarea
               id={id}
@@ -96,7 +102,7 @@ const FormField: React.FC<FormFieldProps> = ({
       )}
       
       {hasError && errorMessage && (
-        <p className="text-red-500 text-xs mt-1 animate-fade-in">
+        <p className="text-red-500 text-xs mt-1 transition-opacity duration-300">
           {errorMessage}
         </p>
       )}

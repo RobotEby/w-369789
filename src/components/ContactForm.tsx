@@ -107,40 +107,51 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-      <div className="px-8 py-6 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
-        <h3 className="text-2xl font-bold text-gray-900">Solicite seu Orçamento</h3>
-        <p className="text-gray-600 mt-2">Preencha o formulário e receba uma proposta personalizada</p>
-      </div>
+    <div className="relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-3xl"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,0,0,0.02)_0%,transparent_50%)] rounded-3xl"></div>
       
-      <form onSubmit={handleSubmit} className="p-8 space-y-6">
-        <ContactFormFields
-          formData={formData}
-          fieldErrors={fieldErrors}
-          handleInputChange={handleInputChange}
-        />
-
-        {/* Submit Button */}
-        <div className="pt-4">
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full bg-gray-900 hover:bg-gray-800 text-white py-4 px-8 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-          >
-            {isSubmitting ? (
-              <div className="flex items-center">
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-                Enviando...
-              </div>
-            ) : (
-              <>
-                Enviar Mensagem
-                <Send className="ml-2 h-5 w-5" />
-              </>
-            )}
-          </button>
+      <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden">
+        {/* Elegant Header */}
+        <div className="relative px-8 py-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-black/5 opacity-20"></div>
+          <div className="relative">
+            <h3 className="text-2xl font-bold tracking-tight mb-2">Solicite seu Orçamento</h3>
+            <p className="text-gray-300 font-light">Transforme suas ideias em resultados excepcionais</p>
+          </div>
         </div>
-      </form>
+        
+        <form onSubmit={handleSubmit} className="p-8 space-y-8">
+          <ContactFormFields
+            formData={formData}
+            fieldErrors={fieldErrors}
+            handleInputChange={handleInputChange}
+          />
+
+          {/* Elegant Submit Button */}
+          <div className="pt-6">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="group relative w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 hover:from-gray-800 hover:via-gray-700 hover:to-gray-800 text-white py-4 px-8 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:-translate-y-1 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              {isSubmitting ? (
+                <div className="flex items-center relative z-10">
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+                  <span className="font-medium">Enviando sua mensagem...</span>
+                </div>
+              ) : (
+                <div className="flex items-center relative z-10">
+                  <span className="font-medium">Enviar Mensagem</span>
+                  <Send className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                </div>
+              )}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

@@ -18,14 +18,18 @@ export interface FieldErrors {
 }
 
 // Regex patterns
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_REGEX = /^[\d\s\(\)\-\+]{10,}$/;
+const NAME_REGEX = /^[a-zA-ZÀ-ÿ\s]+$/; // Apenas letras e espaços (incluindo acentos)
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Email mais rigoroso
+const PHONE_REGEX = /^[\d]{10,11}$/; // Apenas números, 10-11 dígitos
+const COMPANY_REGEX = /^[a-zA-ZÀ-ÿ0-9\s&.-]+$/; // Letras, números, espaços e caracteres comuns de empresa
 
-// Lista de palavras ofensivas (pode ser expandida)
+// Lista expandida de palavras ofensivas
 const OFFENSIVE_WORDS = [
   'idiota', 'estupido', 'burro', 'imbecil', 'otario', 'babaca', 'merda', 'porra',
   'caralho', 'puta', 'fdp', 'filho da puta', 'desgraça', 'peste', 'lixo',
-  'stupid', 'idiot', 'damn', 'shit', 'fuck', 'bitch', 'asshole', 'bastard'
+  'stupid', 'idiot', 'damn', 'shit', 'fuck', 'bitch', 'asshole', 'bastard',
+  'retardado', 'retard', 'gay', 'viado', 'bicha', 'corno', 'cornudo',
+  'safado', 'vagabundo', 'prostituta', 'piranha', 'vadia', 'puto'
 ];
 
 const containsOffensiveLanguage = (text: string): boolean => {
@@ -33,12 +37,17 @@ const containsOffensiveLanguage = (text: string): boolean => {
   return OFFENSIVE_WORDS.some(word => lowerText.includes(word.toLowerCase()));
 };
 
+const isValidPhoneNumber = (phone: string): boolean => {
+  const cleanPhone = phone.replace(/\D/g, '');
+  return PHONE_REGEX.test(cleanPhone) && cleanPhone.length >= 10;
+};
+
 export const validateForm = (formData: FormData): FieldErrors => {
   return {
-    name: !formData.name.trim(),
+    name: !formData.name.trim() || !NAME_REGEX.test(formData.name) || containsOffensiveLanguage(formData.name),
     email: !formData.email.trim() || !EMAIL_REGEX.test(formData.email),
-    phone: !formData.phone.trim() || !PHONE_REGEX.test(formData.phone.replace(/\D/g, '')),
-    company: !formData.company.trim(),
+    phone: !formData.phone.trim() || !isValidPhoneNumber(formData.phone),
+    company: !formData.company.trim() || !COMPANY_REGEX.test(formData.company),
     subject: !formData.subject.trim(),
     message: !formData.message.trim() || containsOffensiveLanguage(formData.message)
   };
@@ -51,17 +60,22 @@ export const hasErrors = (errors: FieldErrors): boolean => {
 export const getErrorMessage = (field: keyof FieldErrors, formData: FormData): string => {
   switch (field) {
     case 'name':
-      return 'Este campo é obrigatório';
+      if (!formData.name.trim()) return 'Este campo é obrigatório';
+      if (!NAME_REGEX.test(formData.name)) return 'Nome deve conter apenas letras';
+      if (containsOffensiveLanguage(formData.name)) return 'Nome contém linguagem inapropriada';
+      return '';
     case 'email':
       if (!formData.email.trim()) return 'Este campo é obrigatório';
-      if (!EMAIL_REGEX.test(formData.email)) return 'Email inválido';
+      if (!EMAIL_REGEX.test(formData.email)) return 'Formato de email inválido';
       return '';
     case 'phone':
       if (!formData.phone.trim()) return 'Este campo é obrigatório';
-      if (!PHONE_REGEX.test(formData.phone.replace(/\D/g, ''))) return 'Telefone deve conter apenas números';
+      if (!isValidPhoneNumber(formData.phone)) return 'Número de telefone inválido (10-11 dígitos)';
       return '';
     case 'company':
-      return 'Este campo é obrigatório';
+      if (!formData.company.trim()) return 'Este campo é obrigatório';
+      if (!COMPANY_REGEX.test(formData.company)) return 'Nome da empresa contém caracteres inválidos';
+      return '';
     case 'subject':
       return 'Este campo é obrigatório';
     case 'message':

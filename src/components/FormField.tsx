@@ -89,11 +89,22 @@ const FormField: React.FC<FormFieldProps> = ({
             />
           ) : (
             <input
-              type={type}
+              type={type === 'tel' ? 'text' : type}
               id={id}
               name={name}
               value={value}
               onChange={onChange}
+              onKeyPress={type === 'tel' ? (e) => {
+                // Permite apenas números, backspace, delete e navegação
+                if (!/[\d]/.test(e.key) && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(e.key)) {
+                  e.preventDefault();
+                }
+              } : undefined}
+              onInput={type === 'tel' ? (e) => {
+                // Remove caracteres não numéricos
+                const target = e.target as HTMLInputElement;
+                target.value = target.value.replace(/\D/g, '');
+              } : undefined}
               placeholder={placeholder}
               className={baseClasses}
             />

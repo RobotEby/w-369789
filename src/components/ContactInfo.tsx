@@ -23,14 +23,16 @@ const ContactInfo = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Contact Form */}
-          <div className="lg:col-span-2">
+          <div className="order-2 lg:order-1">
             <ContactForm />
           </div>
 
           {/* Contact Information */}
-          <ContactDetails />
+          <div className="order-1 lg:order-2 flex flex-col justify-center">
+            <ContactDetails />
+          </div>
         </div>
       </div>
     </section>

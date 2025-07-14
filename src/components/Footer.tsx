@@ -1,5 +1,5 @@
 
-import { ArrowRight, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowRight, Linkedin, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -66,14 +66,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-600/10"></div>
+    <footer className="relative bg-gray-950 text-gray-300 overflow-hidden border-t border-gray-800">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 opacity-3">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 to-gray-800/20"></div>
       </div>
-      
-      {/* Top Gradient Line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent"></div>
       
       <div className="relative pt-20 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,47 +79,37 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-5">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent mb-4">
+                <h2 className="text-3xl font-bold text-white mb-4">
                   CBAAP
                 </h2>
-                <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6"></div>
+                <div className="w-16 h-0.5 bg-gray-600 rounded-full mb-6"></div>
               </div>
               
-              <p className="text-slate-300 text-lg leading-relaxed mb-8">
+              <p className="text-gray-400 text-lg leading-relaxed mb-8">
                 Transformamos ideias em estratégias digitais de alto impacto. Especializados em marketing digital, desenvolvimento e tecnologia para impulsionar o crescimento do seu negócio.
               </p>
               
-              {/* Contact Info */}
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-slate-300">
-                  <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-blue-400" />
-                  </div>
-                  <span>contato@cbaap.com.br</span>
+              {/* Simple Contact Info */}
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3 text-gray-400">
+                  <Mail className="w-4 h-4" />
+                  <span className="text-sm">cbaap.agencia@gmail.com</span>
                 </div>
-                <div className="flex items-center space-x-3 text-slate-300">
-                  <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-green-400" />
-                  </div>
-                  <span>+55 (31) 9 9999-9999</span>
-                </div>
-                <div className="flex items-center space-x-3 text-slate-300">
-                  <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-red-400" />
-                  </div>
-                  <span>Belo Horizonte, MG - Brasil</span>
+                <div className="flex items-center space-x-3 text-gray-400">
+                  <MapPin className="w-4 h-4" />
+                  <span className="text-sm">Belo Horizonte, MG</span>
                 </div>
               </div>
             </div>
             
             {/* Navigation Links */}
             <div className="lg:col-span-3">
-              <h3 className="text-xl font-semibold text-white mb-6">Empresa</h3>
+              <h3 className="text-lg font-semibold text-white mb-6">Empresa</h3>
               <ul className="space-y-4">
                 <li>
                   <Link 
                     to="/about" 
-                    className="text-slate-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 inline-block"
                   >
                     Sobre Nós
                   </Link>
@@ -130,7 +117,7 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="/careers" 
-                    className="text-slate-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 inline-block"
                   >
                     Carreiras
                   </Link>
@@ -138,7 +125,7 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="/blog" 
-                    className="text-slate-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 inline-block"
                   >
                     Blog
                   </Link>
@@ -146,7 +133,7 @@ const Footer = () => {
                 <li>
                   <Link 
                     to="/privacy-policy" 
-                    className="text-slate-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 inline-block"
                   >
                     Política de Privacidade
                   </Link>
@@ -156,8 +143,8 @@ const Footer = () => {
             
             {/* Newsletter */}
             <div className="lg:col-span-4">
-              <h3 className="text-xl font-semibold text-white mb-6">Newsletter</h3>
-              <p className="text-slate-300 mb-6">
+              <h3 className="text-lg font-semibold text-white mb-6">Newsletter</h3>
+              <p className="text-gray-400 mb-6">
                 Receba insights exclusivos sobre marketing digital e tecnologia.
               </p>
               
@@ -166,7 +153,7 @@ const Footer = () => {
                   <input 
                     type="email" 
                     placeholder="Digite seu email" 
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 text-white placeholder-slate-400 transition-all duration-300"
+                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500 text-white placeholder-gray-500 transition-colors duration-200"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={isSubmitting}
@@ -174,7 +161,7 @@ const Footer = () => {
                 </div>
                 <button 
                   type="submit" 
-                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed group"
+                  className="w-full px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed group"
                   disabled={isSubmitting}
                 >
                   <span>{isSubmitting ? "Inscrevendo..." : "Inscrever-se"}</span>
@@ -187,23 +174,23 @@ const Footer = () => {
           </div>
           
           {/* Divider */}
-          <div className="border-t border-slate-700 pt-8">
+          <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               {/* Copyright */}
-              <p className="text-slate-400 text-sm">
+              <p className="text-gray-500 text-sm">
                 © {new Date().getFullYear()} CBAAP. Todos os direitos reservados.
               </p>
               
               {/* Social Links */}
               <div className="flex items-center space-x-4">
-                <span className="text-slate-400 text-sm mr-2">Siga-nos:</span>
+                <span className="text-gray-500 text-sm mr-2">Siga-nos:</span>
                 <a 
                   href="https://www.linkedin.com/company/cbaap/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#0077B5] transition-all duration-300 group"
+                  className="w-9 h-9 rounded-lg bg-gray-900 flex items-center justify-center text-gray-500 hover:text-white hover:bg-[#0077B5] transition-colors duration-200"
                 >
-                  <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                  <Linkedin className="w-4 h-4" />
                 </a>
               </div>
             </div>

@@ -1,5 +1,5 @@
 
-import { ArrowRight, Linkedin } from "lucide-react";
+import { ArrowRight, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -47,7 +47,7 @@ const Footer = () => {
       
       toast({
         title: "Sucesso!",
-        description: "Obrigado por se inscrever em nosso newsletter de marketing digital da CBAAP.",
+        description: "Obrigado por se inscrever em nosso newsletter.",
         variant: "default"
       });
       
@@ -66,78 +66,147 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" className="bg-black text-white pt-16 pb-8 w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-700">
-          <div className="lg:col-span-2">
-            <img 
-              src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-              alt="Logo da CBAAP com Gráficos de Marketing Digital" 
-              className="h-10 w-auto mb-6 filter brightness-0 invert" 
-            />
-            <p className="text-gray-300 mb-6">
-              Na CBAAP, unimos tecnologia e criatividade para desenvolver estratégias digitais que realmente funcionam. Nossa expertise abrange desde a criação e gestão de campanhas de tráfego pago até a implementação de soluções avançadas de analytics, tudo pensado para maximizar o retorno sobre o investimento (ROI) e impulsionar o crescimento do seu negócio.
-            </p>
-            <p className="text-gray-300 mb-6">
-              Belo Horizonte, Minas Gerais<br />
-              Brasil
-            </p>
-            <div className="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/company/cbaap/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 transition-colors hover:bg-gray-700 hover:text-white"
-              >
-                <Linkedin size={20} />
-              </a>
+    <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-600/10"></div>
+      </div>
+      
+      {/* Top Gradient Line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent"></div>
+      
+      <div className="relative pt-20 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main Footer Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12">
+            {/* Company Info */}
+            <div className="lg:col-span-5">
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent mb-4">
+                  CBAAP
+                </h2>
+                <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6"></div>
+              </div>
+              
+              <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                Transformamos ideias em estratégias digitais de alto impacto. Especializados em marketing digital, desenvolvimento e tecnologia para impulsionar o crescimento do seu negócio.
+              </p>
+              
+              {/* Contact Info */}
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 text-slate-300">
+                  <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
+                    <Mail className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <span>contato@cbaap.com.br</span>
+                </div>
+                <div className="flex items-center space-x-3 text-slate-300">
+                  <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-green-400" />
+                  </div>
+                  <span>+55 (31) 9 9999-9999</span>
+                </div>
+                <div className="flex items-center space-x-3 text-slate-300">
+                  <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-red-400" />
+                  </div>
+                  <span>Belo Horizonte, MG - Brasil</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Navigation Links */}
+            <div className="lg:col-span-3">
+              <h3 className="text-xl font-semibold text-white mb-6">Empresa</h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link 
+                    to="/about" 
+                    className="text-slate-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                  >
+                    Sobre Nós
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/careers" 
+                    className="text-slate-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                  >
+                    Carreiras
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/blog" 
+                    className="text-slate-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/privacy-policy" 
+                    className="text-slate-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                  >
+                    Política de Privacidade
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            {/* Newsletter */}
+            <div className="lg:col-span-4">
+              <h3 className="text-xl font-semibold text-white mb-6">Newsletter</h3>
+              <p className="text-slate-300 mb-6">
+                Receba insights exclusivos sobre marketing digital e tecnologia.
+              </p>
+              
+              <form onSubmit={handleSubscribe} className="space-y-4">
+                <div className="relative">
+                  <input 
+                    type="email" 
+                    placeholder="Digite seu email" 
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 text-white placeholder-slate-400 transition-all duration-300"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={isSubmitting}
+                  />
+                </div>
+                <button 
+                  type="submit" 
+                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed group"
+                  disabled={isSubmitting}
+                >
+                  <span>{isSubmitting ? "Inscrevendo..." : "Inscrever-se"}</span>
+                  {!isSubmitting && (
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  )}
+                </button>
+              </form>
             </div>
           </div>
           
-          <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Empresa</h3>
-            <ul className="space-y-3">
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">Sobre a CBAAP</Link></li>
-              <li><Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Carreiras</Link></li>
-              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Política de Privacidade</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Entre em Contato</h3>
-            <form className="space-y-4" onSubmit={handleSubscribe}>
-              <div>
-                <input 
-                  type="email" 
-                  placeholder="Seu email" 
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600 text-white placeholder-gray-400"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={isSubmitting}
-                />
+          {/* Divider */}
+          <div className="border-t border-slate-700 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              {/* Copyright */}
+              <p className="text-slate-400 text-sm">
+                © {new Date().getFullYear()} CBAAP. Todos os direitos reservados.
+              </p>
+              
+              {/* Social Links */}
+              <div className="flex items-center space-x-4">
+                <span className="text-slate-400 text-sm mr-2">Siga-nos:</span>
+                <a 
+                  href="https://www.linkedin.com/company/cbaap/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#0077B5] transition-all duration-300 group"
+                >
+                  <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                </a>
               </div>
-              <button 
-                type="submit" 
-                className="w-full px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Inscrevendo..." : (
-                  <>
-                    Inscrever-se
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </>
-                )}
-              </button>
-            </form>
-          </div>
-        </div>
-        
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} CBAAP - Agência de Marketing Digital. Todos os direitos reservados.
-          </p>
-          <div className="flex space-x-6">
-            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Política de Privacidade</Link>
+            </div>
           </div>
         </div>
       </div>

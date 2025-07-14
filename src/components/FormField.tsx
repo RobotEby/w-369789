@@ -100,8 +100,17 @@ const FormField: React.FC<FormFieldProps> = ({
               value={value}
               onChange={onChange}
               onKeyPress={type === 'tel' ? (e) => {
+                // Conta apenas os dígitos no valor atual
+                const currentDigits = value.replace(/\D/g, '').length;
+                
                 // Permite apenas números, +, espaços, parênteses e hífens para telefones
                 if (!/[\d\+\s\(\)\-]/.test(e.key) && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(e.key)) {
+                  e.preventDefault();
+                  return;
+                }
+                
+                // Se for um dígito e já temos 14 dígitos, bloqueia
+                if (/\d/.test(e.key) && currentDigits >= 14) {
                   e.preventDefault();
                 }
               } : undefined}

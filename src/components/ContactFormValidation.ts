@@ -20,7 +20,7 @@ export interface FieldErrors {
 // Regex patterns
 const NAME_REGEX = /^[a-zA-ZÀ-ÿ\s]+$/; // Apenas letras e espaços (incluindo acentos)
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Email mais rigoroso
-const PHONE_REGEX = /^[\d]{10,11}$/; // Apenas números, 10-11 dígitos
+const PHONE_REGEX = /^(?:\+?55\s?)?(?:\(?\d{2}\)?\s?)?[9]?\d{4}[-\s]?\d{4}$|^\+?[1-9]\d{1,14}$/; // Aceita DDDs do Brasil (67) e internacionais, até 14 dígitos
 const COMPANY_REGEX = /^[a-zA-ZÀ-ÿ0-9\s&.-]+$/; // Letras, números, espaços e caracteres comuns de empresa
 
 // Lista expandida de palavras ofensivas
@@ -39,7 +39,8 @@ const containsOffensiveLanguage = (text: string): boolean => {
 
 const isValidPhoneNumber = (phone: string): boolean => {
   const cleanPhone = phone.replace(/\D/g, '');
-  return PHONE_REGEX.test(cleanPhone) && cleanPhone.length >= 10;
+  // Verifica se tem entre 10 e 14 dígitos e se corresponde ao padrão
+  return PHONE_REGEX.test(phone) && cleanPhone.length >= 10 && cleanPhone.length <= 14;
 };
 
 export const validateForm = (formData: FormData): FieldErrors => {
@@ -70,7 +71,7 @@ export const getErrorMessage = (field: keyof FieldErrors, formData: FormData): s
       return '';
     case 'phone':
       if (!formData.phone.trim()) return 'Este campo é obrigatório';
-      if (!isValidPhoneNumber(formData.phone)) return 'Número de telefone inválido (10-11 dígitos)';
+      if (!isValidPhoneNumber(formData.phone)) return 'Número de telefone inválido (10-14 dígitos)';
       return '';
     case 'company':
       if (!formData.company.trim()) return 'Este campo é obrigatório';

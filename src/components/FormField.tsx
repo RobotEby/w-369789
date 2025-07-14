@@ -64,6 +64,7 @@ const FormField: React.FC<FormFieldProps> = ({
           value={value}
           onChange={onChange}
           className={selectClasses}
+          autoComplete="off"
         >
           <option value="">{placeholder}</option>
           {options?.map((option) => (
@@ -86,6 +87,10 @@ const FormField: React.FC<FormFieldProps> = ({
               placeholder={placeholder}
               rows={rows}
               className={textareaClasses}
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
             />
           ) : (
             <input
@@ -95,18 +100,17 @@ const FormField: React.FC<FormFieldProps> = ({
               value={value}
               onChange={onChange}
               onKeyPress={type === 'tel' ? (e) => {
-                // Permite apenas números, backspace, delete e navegação
-                if (!/[\d]/.test(e.key) && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(e.key)) {
+                // Permite apenas números, +, espaços, parênteses e hífens para telefones
+                if (!/[\d\+\s\(\)\-]/.test(e.key) && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(e.key)) {
                   e.preventDefault();
                 }
               } : undefined}
-              onInput={type === 'tel' ? (e) => {
-                // Remove caracteres não numéricos
-                const target = e.target as HTMLInputElement;
-                target.value = target.value.replace(/\D/g, '');
-              } : undefined}
               placeholder={placeholder}
               className={baseClasses}
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
             />
           )}
         </div>

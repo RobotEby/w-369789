@@ -371,154 +371,198 @@ const Features = () => {
         </div>
       </section>
       
-      <section id="technology" className="bg-gray-50 py-10 md:py-16">
-        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+      <section id="technology" className="relative bg-gradient-to-b from-gray-50 to-white py-16 overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-gray-900 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-gray-700 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
+          {/* Header Section */}
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 mb-6 shadow-sm">
+              <Microchip className="w-4 h-4 mr-2 text-gray-600" />
               Nossa Metodologia
             </div>
-            <h2 className="text-3xl font-bold mb-4">Como nossa estratégia funciona</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+              Como nossa estratégia funciona
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Nossa agência combina estratégias proprietárias com ferramentas premium, 
               permitindo desenvolver campanhas completamente únicas em alta velocidade e menor risco.
             </p>
           </div>
           
-          <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-10 transition-all duration-300 hover:shadow-xl">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              {stepFlowItems.map((item, index) => <HoverCard key={index}>
+          {/* Main Content Card */}
+          <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-8 md:p-12 mb-12 relative overflow-hidden hover-scale">
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-50/30 to-transparent pointer-events-none"></div>
+            
+            {/* Three pillars section */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 relative">
+              {stepFlowItems.map((item, index) => (
+                <HoverCard key={index}>
                   <HoverCardTrigger asChild>
-                    <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 h-full cursor-pointer">
+                    <div className="group bg-gradient-to-br from-white to-gray-50/50 rounded-2xl p-8 border border-gray-100 h-full cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
                       <div className="flex flex-col items-center text-center">
-                        <div className="bg-gray-50 rounded-full p-4 mb-4">
+                        <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-full p-6 mb-6 group-hover:scale-110 transition-transform duration-300">
                           {item.icon}
                         </div>
-                        <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.description}</p>
+                        <h3 className="text-xl font-bold mb-3 text-gray-900">{item.title}</h3>
+                        <p className="text-gray-600 leading-relaxed">{item.description}</p>
                       </div>
                     </div>
                   </HoverCardTrigger>
-                  <HoverCardContent className="w-80 shadow-lg">
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-semibold">{item.title}</h4>
-                      <p className="text-sm">{item.description}</p>
-                      {index === 0 && <p className="text-xs text-gray-500">Nossas estratégias proprietárias fornecem a base fundamental de cada solução que construímos.</p>}
-                      {index === 1 && <p className="text-xs text-gray-500">Selecionamos cuidadosamente as melhores ferramentas para complementar nossa estratégia proprietária.</p>}
-                      {index === 2 && <p className="text-xs text-gray-500">Nossa rede de parceiros de implementação garante execução de qualidade em escala.</p>}
+                  <HoverCardContent className="w-80 shadow-xl border-0 bg-white/95 backdrop-blur-sm">
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-semibold text-gray-900">{item.title}</h4>
+                      <p className="text-sm text-gray-700">{item.description}</p>
+                      {index === 0 && <p className="text-xs text-gray-500 bg-gray-50 p-2 rounded">Nossas estratégias proprietárias fornecem a base fundamental de cada solução que construímos.</p>}
+                      {index === 1 && <p className="text-xs text-gray-500 bg-gray-50 p-2 rounded">Selecionamos cuidadosamente as melhores ferramentas para complementar nossa estratégia proprietária.</p>}
+                      {index === 2 && <p className="text-xs text-gray-500 bg-gray-50 p-2 rounded">Nossa rede de parceiros de implementação garante execução de qualidade em escala.</p>}
                     </div>
                   </HoverCardContent>
-                </HoverCard>)}
+                </HoverCard>
+              ))}
             </div>
 
-            <div className="relative h-16 mb-10">
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full -mt-3">
-                <div className="bg-gray-400 rounded-full p-1">
-                  <ArrowRight className="w-5 h-5 text-white rotate-90" />
+            {/* Animated connector */}
+            <div className="relative h-20 mb-16">
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 via-gray-400 to-gray-300 animate-shimmer"></div>
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full -mt-4">
+                <div className="bg-gradient-to-r from-gray-400 to-gray-500 rounded-full p-2 shadow-lg animate-pulse">
+                  <ArrowRight className="w-6 h-6 text-white rotate-90" />
                 </div>
               </div>
               
               <div className="md:hidden flex justify-center items-center h-full">
-                <div className="w-1/3 h-0.5 bg-gray-300"></div>
-                <div className="bg-gray-400 rounded-full p-1 mx-2">
-                  <ArrowRight className="w-5 h-5 text-white" />
+                <div className="w-1/3 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent animate-shimmer"></div>
+                <div className="bg-gradient-to-r from-gray-400 to-gray-500 rounded-full p-2 mx-4 shadow-lg animate-pulse">
+                  <ArrowRight className="w-6 h-6 text-white" />
                 </div>
-                <div className="w-1/3 h-0.5 bg-gray-300"></div>
+                <div className="w-1/3 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent animate-shimmer"></div>
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-6 mb-10 shadow-md">
-              <div className="max-w-3xl mx-auto">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
-                  <div className="flex items-center">
-                    <h3 className="text-xl font-bold">Projeto de Otimização</h3>
+            {/* Interactive project progress section */}
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 mb-16 shadow-inner border border-gray-100 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50/20 to-purple-50/20 pointer-events-none"></div>
+              <div className="relative max-w-4xl mx-auto">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-full p-2">
+                      <Code className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Projeto de Otimização</h3>
                   </div>
-                  <div className="flex items-center">
-                    <span className="text-sm text-gray-500 mr-2">Desenvolvimento Iterativo</span>
-                    <RefreshCcw className="h-5 w-5 text-gray-600 animate-rotate-slow" />
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm text-gray-600 font-medium">Desenvolvimento Iterativo</span>
+                    <div className="bg-gray-100 rounded-full p-1">
+                      <RefreshCcw className="h-5 w-5 text-gray-600 animate-spin" style={{ animationDuration: '3s' }} />
+                    </div>
                   </div>
                 </div>
                 
-                <p className="text-gray-600 mb-4">Trabalhando iterativamente com clientes para personalizar estratégias às suas necessidades</p>
+                <p className="text-gray-600 mb-6 text-lg leading-relaxed">Trabalhando iterativamente com clientes para personalizar estratégias às suas necessidades</p>
                 
-                <div className="relative mb-2">
-                  <Progress value={progressValue} className="h-3 bg-gray-200" />
+                <div className="relative mb-4">
+                  <Progress value={progressValue} className="h-4 bg-gray-200 rounded-full overflow-hidden" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-slide-right opacity-50"></div>
                 </div>
                 
-                <div className={cn("grid gap-1 mt-4", isMobile ? "grid-cols-2 gap-y-2" : "grid-cols-4")}>
-                  {sprintPhases.map((phase, index) => <div key={index} className={cn("text-center p-2 rounded transition-all", progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
+                <div className={cn("grid gap-3 mt-6", isMobile ? "grid-cols-2 gap-y-3" : "grid-cols-4")}>
+                  {sprintPhases.map((phase, index) => (
+                    <div key={index} className={cn("text-center p-4 rounded-xl transition-all duration-300 border", 
+                      progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 
+                        ? "bg-gradient-to-br from-blue-50 to-purple-50 border-blue-200 shadow-md scale-105" 
+                        : "bg-white border-gray-200 hover:shadow-sm")}>
                       <div className="flex flex-col items-center">
-                        <div className={cn("rounded-full p-1 mb-1", progressValue >= index / sprintPhases.length * 100 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-500")}>
+                        <div className={cn("rounded-full p-3 mb-2 transition-all duration-300", 
+                          progressValue >= index / sprintPhases.length * 100 
+                            ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg" 
+                            : "bg-gray-100 text-gray-500")}>
                           {phase.icon}
                         </div>
-                        <span className="text-xs font-medium">{phase.name}</span>
+                        <span className="text-sm font-semibold text-gray-900">{phase.name}</span>
                       </div>
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
                 
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2">
-                  <div className="flex items-center">
-                    <div className="bg-green-100 rounded-full p-1 mr-2 shrink-0">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-8 gap-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-green-100 rounded-full p-2 shadow-sm">
+                      <CheckCircle className="h-5 w-5 text-green-600" />
                     </div>
-                    <span className="text-sm text-gray-600">Feedback do cliente integrado em cada etapa</span>
+                    <span className="text-gray-700 font-medium">Feedback do cliente integrado em cada etapa</span>
                   </div>
-                  <div className="text-sm text-gray-500 flex items-center mt-2 sm:mt-0">
-                    <span className="mr-2">Melhoria contínua</span>
+                  <div className="text-sm text-gray-500 flex items-center">
+                    <span className="mr-3 font-medium">Melhoria contínua</span>
                     <div className="flex space-x-1">
-                      <span className="inline-block w-2 h-2 bg-gray-300 rounded-full animate-pulse"></span>
-                      <span className="inline-block w-2 h-2 bg-gray-400 rounded-full animate-pulse animation-delay-200"></span>
-                      <span className="inline-block w-2 h-2 bg-gray-500 rounded-full animate-pulse animation-delay-400"></span>
+                      <span className="inline-block w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+                      <span className="inline-block w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></span>
+                      <span className="inline-block w-2 h-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="relative h-16 mb-10">
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full -mt-3">
-                <div className="bg-gray-400 rounded-full p-1">
-                  <ArrowRight className="w-5 h-5 text-white rotate-90" />
+            {/* Animated connector */}
+            <div className="relative h-20 mb-16">
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 via-gray-400 to-gray-300 animate-shimmer"></div>
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full -mt-4">
+                <div className="bg-gradient-to-r from-gray-400 to-gray-500 rounded-full p-2 shadow-lg animate-pulse">
+                  <ArrowRight className="w-6 h-6 text-white rotate-90" />
                 </div>
               </div>
               
               <div className="md:hidden flex justify-center items-center h-full">
-                <div className="w-1/3 h-0.5 bg-gray-300"></div>
-                <div className="bg-gray-400 rounded-full p-1 mx-2">
-                  <ArrowRight className="w-5 h-5 text-white" />
+                <div className="w-1/3 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent animate-shimmer"></div>
+                <div className="bg-gradient-to-r from-gray-400 to-gray-500 rounded-full p-2 mx-4 shadow-lg animate-pulse">
+                  <ArrowRight className="w-6 h-6 text-white" />
                 </div>
-                <div className="w-1/3 h-0.5 bg-gray-300"></div>
+                <div className="w-1/3 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent animate-shimmer"></div>
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-gray-100 via-white to-gray-100 rounded-lg p-8 max-w-xl mx-auto text-center shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="relative inline-block mb-4">
-                <div className="absolute inset-0 bg-black/10 rounded-full animate-pulse-slow"></div>
-                <div className="relative bg-white rounded-full p-4 border border-gray-200 shadow-md">
-                  <Rocket className="h-10 w-10 text-gray-700" />
+            {/* Launch section */}
+            <div className="bg-gradient-to-br from-gray-100 via-white to-gray-100 rounded-2xl p-12 max-w-2xl mx-auto text-center shadow-lg border border-gray-200 relative overflow-hidden group">
+              {/* Floating particles effect */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-4 left-4 w-3 h-3 bg-gray-600 rounded-full animate-float"></div>
+                <div className="absolute top-8 right-8 w-2 h-2 bg-gray-500 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute bottom-6 left-8 w-2 h-2 bg-gray-700 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+              </div>
+              
+              <div className="relative inline-block mb-6">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full animate-pulse blur-lg"></div>
+                <div className="relative bg-white rounded-full p-6 border-2 border-gray-200 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                  <Rocket className="h-12 w-12 text-gray-700 group-hover:text-gray-900 transition-colors" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">Lançamento no Mercado</h3>
-              <p className="text-gray-700">Pronto para escalar, converter e dominar</p>
-              <div className="flex justify-center mt-4 space-x-2">
-                <span className="inline-block w-3 h-3 rounded-full bg-gray-300 animate-pulse"></span>
-                <span className="inline-block w-3 h-3 rounded-full bg-gray-500 animate-pulse animation-delay-200"></span>
-                <span className="inline-block w-3 h-3 rounded-full bg-gray-700 animate-pulse animation-delay-400"></span>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Lançamento no Mercado</h3>
+              <p className="text-lg text-gray-700 mb-6">Pronto para escalar, converter e dominar</p>
+              <div className="flex justify-center space-x-3">
+                <span className="inline-block w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-blue-500 animate-pulse shadow-lg"></span>
+                <span className="inline-block w-4 h-4 rounded-full bg-gradient-to-r from-purple-400 to-purple-500 animate-pulse shadow-lg" style={{ animationDelay: '0.3s' }}></span>
+                <span className="inline-block w-4 h-4 rounded-full bg-gradient-to-r from-gray-400 to-gray-500 animate-pulse shadow-lg" style={{ animationDelay: '0.6s' }}></span>
               </div>
             </div>
           </div>
           
-          <div className="text-center">
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <Link to="/tech-details" onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center px-4 sm:px-6 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group py-3 w-full sm:w-auto justify-center">
+          {/* CTA Buttons */}
+          <div className="text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+              <Link to="/tech-details" onClick={() => window.scrollTo(0, 0)} className="group inline-flex items-center px-8 py-4 bg-white text-gray-700 rounded-xl border-2 border-gray-200 hover:bg-gray-50 hover:shadow-lg transition-all duration-300 w-full sm:w-auto justify-center font-medium">
                 Saiba Mais Sobre Nossa Metodologia
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               
-              <Button onClick={scrollToContact} className="inline-flex items-center px-4 sm:px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group w-full sm:w-auto justify-center">
+              <Button onClick={scrollToContact} className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto justify-center font-medium">
                 Falar com Nossos Especialistas
-                <MessageSquare className="ml-2 w-4 h-4 group-hover:scale-110 transition-transform" />
+                <MessageSquare className="ml-3 w-5 h-5 group-hover:scale-110 transition-transform" />
               </Button>
             </div>
           </div>

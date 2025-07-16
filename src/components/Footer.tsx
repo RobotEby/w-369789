@@ -78,11 +78,11 @@ const Footer = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12">
             {/* Company Info */}
             <div className="lg:col-span-5">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-white mb-4">
+              <div className="mb-8 animate-fade-in">
+                <h2 className="text-3xl font-bold text-white mb-4 hover:scale-105 transition-transform duration-300">
                   CBAAP
                 </h2>
-                <div className="w-16 h-0.5 bg-gray-600 rounded-full mb-6"></div>
+                <div className="w-16 h-0.5 bg-gray-600 rounded-full mb-6 animate-pulse"></div>
               </div>
               
               <p className="text-gray-400 text-lg leading-relaxed mb-8">

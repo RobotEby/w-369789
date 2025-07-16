@@ -378,7 +378,9 @@ const Features = () => {
           <div className="absolute bottom-10 right-10 w-40 h-40 bg-gray-700 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
+        <div className="w-full px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto relative">
+          {/* Professional background overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50/40 to-gray-100/20 rounded-3xl -z-10"></div>
           {/* Header Section */}
           <div className="text-center mb-16 animate-fade-in">
             <div className="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 mb-6 shadow-sm">

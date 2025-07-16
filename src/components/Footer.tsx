@@ -82,7 +82,10 @@ const Footer = () => {
                 <h2 className="text-3xl font-bold text-white mb-4 hover:scale-105 transition-transform duration-300">
                   CBAAP
                 </h2>
-                <div className="w-16 h-0.5 bg-gray-600 rounded-full mb-6 animate-pulse"></div>
+                <div className="relative mb-6">
+                  <div className="w-20 h-1 bg-gradient-to-r from-gray-600 via-gray-400 to-gray-600 rounded-full animate-shimmer"></div>
+                  <div className="absolute top-0 left-0 w-20 h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-full animate-slide-right"></div>
+                </div>
               </div>
               
               <p className="text-gray-400 text-lg leading-relaxed mb-8">

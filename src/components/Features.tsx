@@ -371,207 +371,156 @@ const Features = () => {
         </div>
       </section>
       
-      <section id="technology" className="relative bg-black py-20 overflow-hidden">
-        {/* Professional background pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-slate-900"></div>
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 left-20 w-96 h-96 bg-gray-500 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-20 w-80 h-80 bg-gray-600 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gray-400 rounded-full blur-3xl"></div>
-          </div>
-        </div>
-        
-        <div className="w-full px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto relative">
-          {/* Header Section */}
-          <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium text-white mb-8 shadow-lg">
-              <Microchip className="w-5 h-5 mr-3 text-gray-300" />
-              Nossa Metodologia Exclusiva
+      <section id="technology" className="bg-gray-50 py-10 md:py-16">
+        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+              Nossa Metodologia
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              Estratégia que <span className="bg-gradient-to-r from-gray-300 to-white bg-clip-text text-transparent">Transforma</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
-              Combinamos estratégias proprietárias com tecnologia avançada para criar campanhas que superam expectativas e geram resultados excepcionais para nossos clientes.
+            <h2 className="text-3xl font-bold mb-4">Como nossa estratégia funciona</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Nossa agência combina estratégias proprietárias com ferramentas premium, 
+              permitindo desenvolver campanhas completamente únicas em alta velocidade e menor risco.
             </p>
-            
-            {/* Key metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">+250%</div>
-                <div className="text-gray-300">ROI Médio</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-gray-200 mb-2">48h</div>
-                <div className="text-gray-300">Setup Completo</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">99.8%</div>
-                <div className="text-gray-300">Taxa de Sucesso</div>
-              </div>
-            </div>
           </div>
           
-          {/* Interactive Process Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-            {stepFlowItems.map((item, index) => (
-              <div key={index} className="group relative">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 h-full transition-all duration-500 hover:bg-white/10 hover:border-white/20 cursor-pointer animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
-                  {/* Card number */}
-                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-900 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                    {index + 1}
-                  </div>
-                  
-                  <div className="flex flex-col items-center text-center pt-4">
-                    <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-full p-6 mb-6 transition-all duration-300 group-hover:scale-110 border border-white/10">
-                      <div className="text-gray-300">
-                        {item.icon}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-10 transition-all duration-300 hover:shadow-xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              {stepFlowItems.map((item, index) => <HoverCard key={index}>
+                  <HoverCardTrigger asChild>
+                    <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 h-full cursor-pointer">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="bg-gray-50 rounded-full p-4 mb-4">
+                          {item.icon}
+                        </div>
+                        <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                        <p className="text-sm text-gray-600">{item.description}</p>
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-white">{item.title}</h3>
-                    <p className="text-gray-300 leading-relaxed mb-6">{item.description}</p>
-                    
-                    {/* Interactive button */}
-                    <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 group">
-                      Saiba Mais
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80 shadow-lg">
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-semibold">{item.title}</h4>
+                      <p className="text-sm">{item.description}</p>
+                      {index === 0 && <p className="text-xs text-gray-500">Nossas estratégias proprietárias fornecem a base fundamental de cada solução que construímos.</p>}
+                      {index === 1 && <p className="text-xs text-gray-500">Selecionamos cuidadosamente as melhores ferramentas para complementar nossa estratégia proprietária.</p>}
+                      {index === 2 && <p className="text-xs text-gray-500">Nossa rede de parceiros de implementação garante execução de qualidade em escala.</p>}
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>)}
+            </div>
 
-          {/* Interactive Process Flow */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12 mb-16 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5"></div>
-            
-            <div className="relative">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl font-bold text-white mb-4">Processo de Desenvolvimento</h3>
-                <p className="text-gray-300 text-lg">Acompanhe o progresso em tempo real</p>
+            <div className="relative h-16 mb-10">
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full -mt-3">
+                <div className="bg-gray-400 rounded-full p-1">
+                  <ArrowRight className="w-5 h-5 text-white rotate-90" />
+                </div>
               </div>
               
-              <div className="bg-white/5 rounded-2xl p-8 mb-12 border border-white/10">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-gradient-to-r from-gray-700 to-gray-900 rounded-full p-3">
-                      <Code className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="text-2xl font-bold text-white">Projeto Ativo</h4>
-                      <p className="text-gray-300">Sprint {currentSprint} de {totalSprints}</p>
-                    </div>
+              <div className="md:hidden flex justify-center items-center h-full">
+                <div className="w-1/3 h-0.5 bg-gray-300"></div>
+                <div className="bg-gray-400 rounded-full p-1 mx-2">
+                  <ArrowRight className="w-5 h-5 text-white" />
+                </div>
+                <div className="w-1/3 h-0.5 bg-gray-300"></div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-6 mb-10 shadow-md">
+              <div className="max-w-3xl mx-auto">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
+                  <div className="flex items-center">
+                    <h3 className="text-xl font-bold">Projeto de Otimização</h3>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="text-gray-300 font-medium">Status:</span>
-                    <span className="px-3 py-1 bg-gray-500/20 text-gray-300 rounded-full text-sm font-medium border border-gray-500/30">
-                      Em Desenvolvimento
-                    </span>
+                  <div className="flex items-center">
+                    <span className="text-sm text-gray-500 mr-2">Desenvolvimento Iterativo</span>
+                    <RefreshCcw className="h-5 w-5 text-gray-600 animate-rotate-slow" />
                   </div>
                 </div>
                 
-                <div className="relative mb-6">
-                  <Progress value={progressValue} className="h-3 bg-white/10 rounded-full overflow-hidden" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full animate-pulse"></div>
+                <p className="text-gray-600 mb-4">Trabalhando iterativamente com clientes para personalizar estratégias às suas necessidades</p>
+                
+                <div className="relative mb-2">
+                  <Progress value={progressValue} className="h-3 bg-gray-200" />
                 </div>
                 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                  {sprintPhases.map((phase, index) => (
-                    <div key={index} className={cn("text-center p-4 rounded-xl transition-all duration-300 border", 
-                      progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 
-                        ? "bg-gradient-to-br from-gray-700/20 to-gray-900/20 border-gray-500/50 shadow-lg scale-105" 
-                        : "bg-white/5 border-white/10")}>
+                <div className={cn("grid gap-1 mt-4", isMobile ? "grid-cols-2 gap-y-2" : "grid-cols-4")}>
+                  {sprintPhases.map((phase, index) => <div key={index} className={cn("text-center p-2 rounded transition-all", progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
                       <div className="flex flex-col items-center">
-                        <div className={cn("rounded-full p-3 mb-3 transition-all duration-300", 
-                          progressValue >= index / sprintPhases.length * 100 
-                            ? "bg-gradient-to-r from-gray-700 to-gray-900 text-white shadow-lg" 
-                            : "bg-white/10 text-gray-400")}>
+                        <div className={cn("rounded-full p-1 mb-1", progressValue >= index / sprintPhases.length * 100 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-500")}>
                           {phase.icon}
                         </div>
-                        <span className="text-sm font-semibold text-white">{phase.name}</span>
+                        <span className="text-xs font-medium">{phase.name}</span>
                       </div>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
                 
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-8 gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-gray-500/20 rounded-full p-2">
-                      <CheckCircle className="h-5 w-5 text-gray-300" />
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2">
+                  <div className="flex items-center">
+                    <div className="bg-green-100 rounded-full p-1 mr-2 shrink-0">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
                     </div>
-                    <span className="text-white font-medium">Feedback integrado automaticamente</span>
+                    <span className="text-sm text-gray-600">Feedback do cliente integrado em cada etapa</span>
                   </div>
-                  <div className="text-sm text-gray-300 flex items-center">
-                    <span className="mr-3 font-medium">Otimização contínua</span>
+                  <div className="text-sm text-gray-500 flex items-center mt-2 sm:mt-0">
+                    <span className="mr-2">Melhoria contínua</span>
                     <div className="flex space-x-1">
                       <span className="inline-block w-2 h-2 bg-gray-300 rounded-full animate-pulse"></span>
-                      <span className="inline-block w-2 h-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></span>
-                      <span className="inline-block w-2 h-2 bg-gray-500 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></span>
+                      <span className="inline-block w-2 h-2 bg-gray-400 rounded-full animate-pulse animation-delay-200"></span>
+                      <span className="inline-block w-2 h-2 bg-gray-500 rounded-full animate-pulse animation-delay-400"></span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          
-          {/* Results Section */}
-          <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-3xl p-12 text-center border border-white/20 relative overflow-hidden mb-16">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10"></div>
             
-            <div className="relative">
-              <div className="inline-block mb-8">
-                <div className="bg-gradient-to-r from-gray-700 to-gray-900 rounded-full p-8 shadow-2xl">
-                  <Rocket className="h-16 w-16 text-white" />
+            <div className="relative h-16 mb-10">
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full -mt-3">
+                <div className="bg-gray-400 rounded-full p-1">
+                  <ArrowRight className="w-5 h-5 text-white rotate-90" />
                 </div>
               </div>
-              <h3 className="text-4xl font-bold text-white mb-6">Resultados Garantidos</h3>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Sua campanha estará pronta para dominar o mercado e gerar conversões excepcionais
-              </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">Conversões</div>
-                  <div className="text-gray-300">Otimizadas para máximo ROI</div>
+              <div className="md:hidden flex justify-center items-center h-full">
+                <div className="w-1/3 h-0.5 bg-gray-300"></div>
+                <div className="bg-gray-400 rounded-full p-1 mx-2">
+                  <ArrowRight className="w-5 h-5 text-white" />
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-200 mb-2">Escalabilidade</div>
-                  <div className="text-gray-300">Crescimento sustentável</div>
+                <div className="w-1/3 h-0.5 bg-gray-300"></div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-gray-100 via-white to-gray-100 rounded-lg p-8 max-w-xl mx-auto text-center shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="relative inline-block mb-4">
+                <div className="absolute inset-0 bg-black/10 rounded-full animate-pulse-slow"></div>
+                <div className="relative bg-white rounded-full p-4 border border-gray-200 shadow-md">
+                  <Rocket className="h-10 w-10 text-gray-700" />
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-100 mb-2">Performance</div>
-                  <div className="text-gray-300">Monitoramento contínuo</div>
-                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Lançamento no Mercado</h3>
+              <p className="text-gray-700">Pronto para escalar, converter e dominar</p>
+              <div className="flex justify-center mt-4 space-x-2">
+                <span className="inline-block w-3 h-3 rounded-full bg-gray-300 animate-pulse"></span>
+                <span className="inline-block w-3 h-3 rounded-full bg-gray-500 animate-pulse animation-delay-200"></span>
+                <span className="inline-block w-3 h-3 rounded-full bg-gray-700 animate-pulse animation-delay-400"></span>
               </div>
             </div>
           </div>
           
-          {/* CTA Section */}
-          <div className="text-center animate-fade-in">
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-              <Button 
-                onClick={scrollToContact} 
-                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto justify-center font-semibold text-lg"
-              >
-                Começar Meu Projeto
-                <MessageSquare className="ml-3 w-5 h-5 group-hover:scale-110 transition-transform" />
-              </Button>
-              
-              <Link 
-                to="/tech-details" 
-                onClick={() => window.scrollTo(0, 0)} 
-                className="group inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl border border-white/20 hover:bg-white/20 hover:shadow-lg transition-all duration-300 w-full sm:w-auto justify-center font-semibold text-lg"
-              >
-                Detalhes Técnicos
-                <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <div className="text-center">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <Link to="/tech-details" onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center px-4 sm:px-6 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group py-3 w-full sm:w-auto justify-center">
+                Saiba Mais Sobre Nossa Metodologia
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
+              
+              <Button onClick={scrollToContact} className="inline-flex items-center px-4 sm:px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group w-full sm:w-auto justify-center">
+                Falar com Nossos Especialistas
+                <MessageSquare className="ml-2 w-4 h-4 group-hover:scale-110 transition-transform" />
+              </Button>
             </div>
-            
-            <p className="text-gray-400 mt-6 text-sm">
-              * Resultados baseados em mais de 500 projetos executados
-            </p>
           </div>
         </div>
       </section>

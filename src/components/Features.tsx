@@ -371,26 +371,26 @@ const Features = () => {
         </div>
       </section>
       
-      <section id="technology" className="relative bg-slate-900 py-20 overflow-hidden">
+      <section id="technology" className="relative bg-primary py-20 overflow-hidden">
         {/* Professional background pattern */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-wrlds-dark to-primary"></div>
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gray-500 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 left-20 w-96 h-96 bg-wrlds-teal rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-80 h-80 bg-wrlds-accent rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-muted rounded-full blur-3xl"></div>
           </div>
         </div>
         
         <div className="w-full px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto relative">
           {/* Header Section */}
           <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium text-white mb-8 shadow-lg">
-              <Microchip className="w-5 h-5 mr-3 text-blue-400" />
+            <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium text-primary-foreground mb-8 shadow-lg">
+              <Microchip className="w-5 h-5 mr-3 text-wrlds-teal" />
               Nossa Metodologia Exclusiva
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              Estratégia que <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Transforma</span>
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-primary-foreground leading-tight">
+              Estratégia que <span className="bg-gradient-to-r from-wrlds-teal to-wrlds-accent bg-clip-text text-transparent">Transforma</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
               Combinamos estratégias proprietárias com tecnologia avançada para criar campanhas que superam expectativas e geram resultados excepcionais para nossos clientes.
@@ -399,16 +399,16 @@ const Features = () => {
             {/* Key metrics */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto">
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-400 mb-2">+250%</div>
-                <div className="text-gray-300">ROI Médio</div>
+                <div className="text-4xl font-bold text-wrlds-teal mb-2">+250%</div>
+                <div className="text-muted-foreground">ROI Médio</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">48h</div>
-                <div className="text-gray-300">Setup Completo</div>
+                <div className="text-4xl font-bold text-wrlds-accent mb-2">48h</div>
+                <div className="text-muted-foreground">Setup Completo</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-2">99.8%</div>
-                <div className="text-gray-300">Taxa de Sucesso</div>
+                <div className="text-4xl font-bold text-wrlds-teal mb-2">99.8%</div>
+                <div className="text-muted-foreground">Taxa de Sucesso</div>
               </div>
             </div>
           </div>
@@ -419,21 +419,21 @@ const Features = () => {
               <div key={index} className="group relative">
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 h-full transition-all duration-500 hover:bg-white/10 hover:border-white/20 cursor-pointer animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
                   {/* Card number */}
-                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-wrlds-teal to-wrlds-accent rounded-full flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
                     {index + 1}
                   </div>
                   
                   <div className="flex flex-col items-center text-center pt-4">
                     <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-full p-6 mb-6 transition-all duration-300 group-hover:scale-110 border border-white/10">
-                      <div className="text-blue-400">
+                      <div className="text-wrlds-teal">
                         {item.icon}
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-white">{item.title}</h3>
-                    <p className="text-gray-300 leading-relaxed mb-6">{item.description}</p>
+                    <h3 className="text-2xl font-bold mb-4 text-primary-foreground">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">{item.description}</p>
                     
                     {/* Interactive button */}
-                    <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 group">
+                    <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-wrlds-teal to-wrlds-accent text-primary-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 group">
                       Saiba Mais
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -449,24 +449,24 @@ const Features = () => {
             
             <div className="relative">
               <div className="text-center mb-12">
-                <h3 className="text-3xl font-bold text-white mb-4">Processo de Desenvolvimento</h3>
-                <p className="text-gray-300 text-lg">Acompanhe o progresso em tempo real</p>
+                <h3 className="text-3xl font-bold text-primary-foreground mb-4">Processo de Desenvolvimento</h3>
+                <p className="text-muted-foreground text-lg">Acompanhe o progresso em tempo real</p>
               </div>
               
               <div className="bg-white/5 rounded-2xl p-8 mb-12 border border-white/10">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
                   <div className="flex items-center space-x-4">
-                    <div className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-full p-3">
-                      <Code className="w-6 h-6 text-white" />
+                    <div className="bg-gradient-to-r from-wrlds-teal to-wrlds-accent rounded-full p-3">
+                      <Code className="w-6 h-6 text-primary-foreground" />
                     </div>
                     <div>
-                      <h4 className="text-2xl font-bold text-white">Projeto Ativo</h4>
-                      <p className="text-gray-300">Sprint {currentSprint} de {totalSprints}</p>
+                      <h4 className="text-2xl font-bold text-primary-foreground">Projeto Ativo</h4>
+                      <p className="text-muted-foreground">Sprint {currentSprint} de {totalSprints}</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <span className="text-gray-300 font-medium">Status:</span>
-                    <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-medium border border-green-500/30">
+                    <span className="text-muted-foreground font-medium">Status:</span>
+                    <span className="px-3 py-1 bg-wrlds-teal/20 text-wrlds-teal rounded-full text-sm font-medium border border-wrlds-teal/30">
                       Em Desenvolvimento
                     </span>
                   </div>
@@ -481,16 +481,16 @@ const Features = () => {
                   {sprintPhases.map((phase, index) => (
                     <div key={index} className={cn("text-center p-4 rounded-xl transition-all duration-300 border", 
                       progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 
-                        ? "bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-blue-400/50 shadow-lg scale-105" 
+                        ? "bg-gradient-to-br from-wrlds-teal/20 to-wrlds-accent/20 border-wrlds-teal/50 shadow-lg scale-105" 
                         : "bg-white/5 border-white/10")}>
                       <div className="flex flex-col items-center">
                         <div className={cn("rounded-full p-3 mb-3 transition-all duration-300", 
                           progressValue >= index / sprintPhases.length * 100 
-                            ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg" 
-                            : "bg-white/10 text-gray-400")}>
+                            ? "bg-gradient-to-r from-wrlds-teal to-wrlds-accent text-primary-foreground shadow-lg" 
+                            : "bg-white/10 text-muted-foreground")}>
                           {phase.icon}
                         </div>
-                        <span className="text-sm font-semibold text-white">{phase.name}</span>
+                        <span className="text-sm font-semibold text-primary-foreground">{phase.name}</span>
                       </div>
                     </div>
                   ))}
@@ -498,17 +498,17 @@ const Features = () => {
                 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-8 gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
                   <div className="flex items-center space-x-3">
-                    <div className="bg-green-500/20 rounded-full p-2">
-                      <CheckCircle className="h-5 w-5 text-green-400" />
+                    <div className="bg-wrlds-teal/20 rounded-full p-2">
+                      <CheckCircle className="h-5 w-5 text-wrlds-teal" />
                     </div>
-                    <span className="text-white font-medium">Feedback integrado automaticamente</span>
+                    <span className="text-primary-foreground font-medium">Feedback integrado automaticamente</span>
                   </div>
-                  <div className="text-sm text-gray-300 flex items-center">
+                  <div className="text-sm text-muted-foreground flex items-center">
                     <span className="mr-3 font-medium">Otimização contínua</span>
                     <div className="flex space-x-1">
-                      <span className="inline-block w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-                      <span className="inline-block w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></span>
-                      <span className="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></span>
+                      <span className="inline-block w-2 h-2 bg-wrlds-teal rounded-full animate-pulse"></span>
+                      <span className="inline-block w-2 h-2 bg-wrlds-accent rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></span>
+                      <span className="inline-block w-2 h-2 bg-wrlds-teal rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></span>
                     </div>
                   </div>
                 </div>
@@ -522,27 +522,27 @@ const Features = () => {
             
             <div className="relative">
               <div className="inline-block mb-8">
-                <div className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-full p-8 shadow-2xl">
-                  <Rocket className="h-16 w-16 text-white" />
+                <div className="bg-gradient-to-r from-wrlds-teal to-wrlds-accent rounded-full p-8 shadow-2xl">
+                  <Rocket className="h-16 w-16 text-primary-foreground" />
                 </div>
               </div>
-              <h3 className="text-4xl font-bold text-white mb-6">Resultados Garantidos</h3>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              <h3 className="text-4xl font-bold text-primary-foreground mb-6">Resultados Garantidos</h3>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Sua campanha estará pronta para dominar o mercado e gerar conversões excepcionais
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-2">Conversões</div>
-                  <div className="text-gray-300">Otimizadas para máximo ROI</div>
+                  <div className="text-3xl font-bold text-wrlds-teal mb-2">Conversões</div>
+                  <div className="text-muted-foreground">Otimizadas para máximo ROI</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">Escalabilidade</div>
-                  <div className="text-gray-300">Crescimento sustentável</div>
+                  <div className="text-3xl font-bold text-wrlds-accent mb-2">Escalabilidade</div>
+                  <div className="text-muted-foreground">Crescimento sustentável</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-400 mb-2">Performance</div>
-                  <div className="text-gray-300">Monitoramento contínuo</div>
+                  <div className="text-3xl font-bold text-wrlds-teal mb-2">Performance</div>
+                  <div className="text-muted-foreground">Monitoramento contínuo</div>
                 </div>
               </div>
             </div>
@@ -553,7 +553,7 @@ const Features = () => {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
               <Button 
                 onClick={scrollToContact} 
-                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto justify-center font-semibold text-lg"
+                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-wrlds-teal to-wrlds-accent hover:from-wrlds-dark hover:to-wrlds-teal text-primary-foreground rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto justify-center font-semibold text-lg"
               >
                 Começar Meu Projeto
                 <MessageSquare className="ml-3 w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -562,14 +562,14 @@ const Features = () => {
               <Link 
                 to="/tech-details" 
                 onClick={() => window.scrollTo(0, 0)} 
-                className="group inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl border border-white/20 hover:bg-white/20 hover:shadow-lg transition-all duration-300 w-full sm:w-auto justify-center font-semibold text-lg"
+                className="group inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-primary-foreground rounded-xl border border-white/20 hover:bg-white/20 hover:shadow-lg transition-all duration-300 w-full sm:w-auto justify-center font-semibold text-lg"
               >
                 Detalhes Técnicos
                 <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
             
-            <p className="text-gray-400 mt-6 text-sm">
+            <p className="text-muted-foreground mt-6 text-sm">
               * Resultados baseados em mais de 500 projetos executados
             </p>
           </div>

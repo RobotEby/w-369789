@@ -371,14 +371,14 @@ const Features = () => {
         </div>
       </section>
       
-      <section id="technology" className="relative bg-slate-900 py-20 overflow-hidden">
+      <section id="technology" className="relative bg-black py-20 overflow-hidden">
         {/* Professional background pattern */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-slate-900"></div>
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 left-20 w-96 h-96 bg-blue-900 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-800 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-900 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 left-20 w-96 h-96 bg-gray-500 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-80 h-80 bg-gray-600 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gray-400 rounded-full blur-3xl"></div>
           </div>
         </div>
         
@@ -386,11 +386,11 @@ const Features = () => {
           {/* Header Section */}
           <div className="text-center mb-20 animate-fade-in">
             <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium text-white mb-8 shadow-lg">
-              <Microchip className="w-5 h-5 mr-3 text-blue-400" />
+              <Microchip className="w-5 h-5 mr-3 text-gray-300" />
               Nossa Metodologia Exclusiva
             </div>
             <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white leading-tight">
-              Estratégia que <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Transforma</span>
+              Estratégia que <span className="bg-gradient-to-r from-gray-300 to-white bg-clip-text text-transparent">Transforma</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
               Combinamos estratégias proprietárias com tecnologia avançada para criar campanhas que superam expectativas e geram resultados excepcionais para nossos clientes.
@@ -399,15 +399,15 @@ const Features = () => {
             {/* Key metrics */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto">
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-400 mb-2">+250%</div>
+                <div className="text-4xl font-bold text-white mb-2">+250%</div>
                 <div className="text-gray-300">ROI Médio</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-500 mb-2">48h</div>
+                <div className="text-4xl font-bold text-gray-200 mb-2">48h</div>
                 <div className="text-gray-300">Setup Completo</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-400 mb-2">99.8%</div>
+                <div className="text-4xl font-bold text-white mb-2">99.8%</div>
                 <div className="text-gray-300">Taxa de Sucesso</div>
               </div>
             </div>
@@ -419,13 +419,13 @@ const Features = () => {
               <div key={index} className="group relative">
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 h-full transition-all duration-500 hover:bg-white/10 hover:border-white/20 cursor-pointer animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
                   {/* Card number */}
-                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-900 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                     {index + 1}
                   </div>
                   
                   <div className="flex flex-col items-center text-center pt-4">
                     <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-full p-6 mb-6 transition-all duration-300 group-hover:scale-110 border border-white/10">
-                      <div className="text-blue-400">
+                      <div className="text-gray-300">
                         {item.icon}
                       </div>
                     </div>
@@ -433,7 +433,7 @@ const Features = () => {
                     <p className="text-gray-300 leading-relaxed mb-6">{item.description}</p>
                     
                     {/* Interactive button */}
-                    <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 group">
+                    <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 group">
                       Saiba Mais
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -456,7 +456,7 @@ const Features = () => {
               <div className="bg-white/5 rounded-2xl p-8 mb-12 border border-white/10">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
                   <div className="flex items-center space-x-4">
-                    <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-full p-3">
+                    <div className="bg-gradient-to-r from-gray-700 to-gray-900 rounded-full p-3">
                       <Code className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -466,7 +466,7 @@ const Features = () => {
                   </div>
                   <div className="flex items-center space-x-3">
                     <span className="text-gray-300 font-medium">Status:</span>
-                    <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium border border-blue-500/30">
+                    <span className="px-3 py-1 bg-gray-500/20 text-gray-300 rounded-full text-sm font-medium border border-gray-500/30">
                       Em Desenvolvimento
                     </span>
                   </div>
@@ -481,12 +481,12 @@ const Features = () => {
                   {sprintPhases.map((phase, index) => (
                     <div key={index} className={cn("text-center p-4 rounded-xl transition-all duration-300 border", 
                       progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 
-                        ? "bg-gradient-to-br from-blue-600/20 to-blue-800/20 border-blue-400/50 shadow-lg scale-105" 
+                        ? "bg-gradient-to-br from-gray-700/20 to-gray-900/20 border-gray-500/50 shadow-lg scale-105" 
                         : "bg-white/5 border-white/10")}>
                       <div className="flex flex-col items-center">
                         <div className={cn("rounded-full p-3 mb-3 transition-all duration-300", 
                           progressValue >= index / sprintPhases.length * 100 
-                            ? "bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg" 
+                            ? "bg-gradient-to-r from-gray-700 to-gray-900 text-white shadow-lg" 
                             : "bg-white/10 text-gray-400")}>
                           {phase.icon}
                         </div>
@@ -498,17 +498,17 @@ const Features = () => {
                 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-8 gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
                   <div className="flex items-center space-x-3">
-                    <div className="bg-blue-500/20 rounded-full p-2">
-                      <CheckCircle className="h-5 w-5 text-blue-400" />
+                    <div className="bg-gray-500/20 rounded-full p-2">
+                      <CheckCircle className="h-5 w-5 text-gray-300" />
                     </div>
                     <span className="text-white font-medium">Feedback integrado automaticamente</span>
                   </div>
                   <div className="text-sm text-gray-300 flex items-center">
                     <span className="mr-3 font-medium">Otimização contínua</span>
                     <div className="flex space-x-1">
-                      <span className="inline-block w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-                      <span className="inline-block w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></span>
-                      <span className="inline-block w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></span>
+                      <span className="inline-block w-2 h-2 bg-gray-300 rounded-full animate-pulse"></span>
+                      <span className="inline-block w-2 h-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></span>
+                      <span className="inline-block w-2 h-2 bg-gray-500 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></span>
                     </div>
                   </div>
                 </div>
@@ -522,7 +522,7 @@ const Features = () => {
             
             <div className="relative">
               <div className="inline-block mb-8">
-                <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-full p-8 shadow-2xl">
+                <div className="bg-gradient-to-r from-gray-700 to-gray-900 rounded-full p-8 shadow-2xl">
                   <Rocket className="h-16 w-16 text-white" />
                 </div>
               </div>
@@ -533,15 +533,15 @@ const Features = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">Conversões</div>
+                  <div className="text-3xl font-bold text-white mb-2">Conversões</div>
                   <div className="text-gray-300">Otimizadas para máximo ROI</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-500 mb-2">Escalabilidade</div>
+                  <div className="text-3xl font-bold text-gray-200 mb-2">Escalabilidade</div>
                   <div className="text-gray-300">Crescimento sustentável</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">Performance</div>
+                  <div className="text-3xl font-bold text-gray-100 mb-2">Performance</div>
                   <div className="text-gray-300">Monitoramento contínuo</div>
                 </div>
               </div>
@@ -553,7 +553,7 @@ const Features = () => {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
               <Button 
                 onClick={scrollToContact} 
-                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto justify-center font-semibold text-lg"
+                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto justify-center font-semibold text-lg"
               >
                 Começar Meu Projeto
                 <MessageSquare className="ml-3 w-5 h-5 group-hover:scale-110 transition-transform" />
